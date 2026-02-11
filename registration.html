@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Golden Scroll - Registration</title>
+    <link rel="stylesheet" href="styles/main.css">
+    <link rel="stylesheet" href="styles/registration.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&family=Fredoka:wght@700&display=swap" rel="stylesheet">
+</head>
+<body> 
+    <main>
+        <div class="logo">
+            <img src="images/logo.png" alt="logo">
+        </div>
+
+        <div class="avatar-container">
+            <div id="cat-avatar" class="cat-avatar"></div>
+        </div>
+
+        <button id="btn-meet-cat">MEET MY CAT!</button>
+
+        <input type="text" id="team-name" placeholder="ENTER YOUR TEAM NAME">
+
+        <div class="welcome-section">
+            <img src="images/orange-cat.png" alt="orange cat" class="orange-cat">
+        </div>
+        <div id="modal-success" class="modal" style="display:none;">
+            <div class="modal-content">
+                <h3>¡READY TO GO!</h3>
+                <p id="modal-message"></p> 
+                <button id="btn-go-index">START ADVENTURE</button>
+            </div>
+        </div>
+    </main>
+
+    <script type="module" src="scripts/registration.mjs"></script>
+</body>
+</html>
