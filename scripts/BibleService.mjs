@@ -1,13 +1,10 @@
 const BASE_URL = "https://bible-api.com/";
 
-// Bible-API
-export async function generateHint(reference) {
-    try {
-        const response = await fetch(`${BASE_URL}${reference}`);
-        const data = await response.json();
-        return data.text; 
-    } catch (error) {
-        console.error("Error:", error);
-        return "It was not possible to find the scripture.";
-    }
+export async function getFullChapter(bookId, chapterNumber) {
+    
+    // URL scructure "https://bible-api.com/genesis+1"
+    const url = `${BASE_URL}${bookId}+${chapterNumber}`;
+    const response = await fetch(url);
+    const data = await response.json();
+    return data; 
 }

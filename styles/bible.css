@@ -1,0 +1,66 @@
+/* Hide the elements that are not being used */
+.hidden {
+    display: none !important;
+}
+
+#book-list {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 20px;
+    padding: 20px;
+}
+
+/* Buttons */
+.book-btn {
+    background-color: var(--color-secondary);
+    color: white;
+    border: 2px solid black;
+    box-shadow: 4px 4px 0px black;
+    border-radius: 15px;
+    padding: 15px;
+    cursor: pointer;
+    transition: transform 0.2s, background-color 0.3s;
+    margin-top: 10px;
+}
+
+.book-btn h2 {
+    font-family: 'Fredoka', sans-serif;
+    font-weight: bold;
+    margin: 0;
+    /* Webkit to create a border for the books */
+    -webkit-text-stroke: 1.2px black;
+    text-shadow: 1px 1px 0px black;
+}
+.book-btn:hover {
+    transform: scale(1.05);
+}
+
+#chapter-list {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr); 
+    gap: 15px;
+    padding: 20px;
+    justify-items: center;
+}
+
+.chapter-btn {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    
+    background-color: rgb(50, 175, 154);
+    border: 3px solid black;
+    color: white;
+    box-shadow: 3px 3px 0px black;
+    
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: 'Fredoka', sans-serif;
+    font-size: 1.5rem;
+    font-weight: bold;
+    cursor: pointer;
+    /* Webkit to create a border for the numbers */
+    -webkit-text-stroke: 1.5px black;
+    text-shadow: 1px 1px 0px black;
+}
