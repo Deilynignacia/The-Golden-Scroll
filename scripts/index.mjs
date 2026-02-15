@@ -1,5 +1,3 @@
-import { generateHint } from './BibleService.mjs';
-
 // Index Profile
 const teamData = JSON.parse(localStorage.getItem("goldenScroll_team"));
 if (teamData) {
@@ -36,14 +34,4 @@ if (btnBible) {
     });
 }
 
-// Bible-API
-const hintButton = document.getElementById('btn-get-hint');
-const display = document.getElementById('scriptures-content');
 
-if (hintButton && display) {
-    hintButton.addEventListener('click', async () => {
-        display.innerText = "Loading Hint";
-        const textoVersiculo = await generateHint("Genesis 1:1"); 
-        display.innerText = textoVersiculo; 
-    });
-}
