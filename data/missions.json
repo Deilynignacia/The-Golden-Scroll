@@ -1,0 +1,96 @@
+{"missions": [
+    {
+        "id": "1",
+        "title": "Adan and Eves's family",
+        "subtitle": "Conflict resolution",
+        "difficulty": "easy",
+        "color": "#EC9D45",
+        "image": "images/icons/1.png",
+        "reference": "",
+        "activity": "Cain and Abel could not solve their problems and faced the consequences. To complete this challenge, go to one of the 'Forest Friends' tables, a game about resolving conflicts."
+    },
+    {
+        "id": "2",
+        "title": "Noah's Ark",
+        "subtitle": "Memory Game",
+        "difficulty": "medium",
+        "color": "#55b4a1",
+        "image": "images/icons/2.png",
+        "reference": "",
+        "activity": "Noah put a pair of every animal on the ark. Play the memory game by matching the animal pairs. When you find a pair, take it to the ark on the monitor’s table."
+    },
+    {
+        
+        "id": "3",
+        "title": "Babel Tower",
+        "subtitle": "Languages bricks",
+        "difficulty": "hard",
+        "color": "#B078B3",
+        "image": "images/icons/3.png",
+        "activity": "The Lord confused the languages of the people in Babel as a punishment for their pride, but thanks to that, many new languages were born! Using the Google Lens translator, look for the cup tower in the language assigned by the monitor. Use the cups to build the hidden sentence."
+    },
+    {
+        "id": "4",
+        "title": "Abrahamic Covenant",
+        "subtitle": "All the Nations of the Earth",
+        "difficulty": "easy",
+        "color": "#EC9D45",
+        "image": "images/icons/4.png",
+        "activity": "The Lord promised Abraham that all the nations of the earth would be blessed through his family. Find only one flag for each of the nations hidden around the room. Put them in numerical order using the numbers in the bottom right corner. Then, shine your phone’s flashlight through them."
+    },
+    {
+        "id": "5",
+        "title": "Jodeph of Egypt",
+        "subtitle": "A Story of twelve Brothers",
+        "difficulty": "medium",
+        "color": "#55b4a1",
+        "image": "images/icons/5.png",
+        "activity": "Joseph faced many challenges throughout his life, but in the end, his strength to overcome them blessed his whole family and all of Egypt. Find the box with your name on it and use the materials inside to create a piece of art about the part of the story written on your box. Once your artwork is ready, show it to your monitor."
+    },
+    {
+        "id": "6",
+        "title": "The Ten Plagues",
+        "subtitle": "God Delivered His People",
+        "difficulty": "hard",
+        "color": "#B078B3",
+        "image": "images/icons/6.png",
+        "activity": "When Pharaoh refused to free the people of Israel, the Lord sent 10 plagues through Moses. After the tenth one, the people were finally set free! Solve the riddles about the plagues in your app (they are in order!)."
+    },
+    {
+        "id": "7",
+        "title": "The ten Commandments",
+        "subtitle": "Stone Puzzle",
+        "difficulty": "easy",
+        "color": "#EC9D45",
+        "image": "images/icons/7.png",
+        "activity": "The Lord gave Moses stone tablets on Mount Sinai with the 10 most important commandments for His people to follow. When Moses came down, he found the people worshiping a golden calf. Moses was very angry; he broke the tablets and destroyed the golden calf. The Lord then asked Moses to make new stone tablets and gave new promises to His people. Put the 10 Commandments puzzle together by sticking the pieces onto the plastic sheet."
+    },
+    {
+        "id": "8",
+        "title": "Las 12 Piedras Preciosas",
+        "subtitle": "El Pectoral del Sumo Sacerdote",
+        "difficulty": "medium",
+        "color": "#55b4a1",
+        "image": "images/icons/8.png",
+        "activity": "Busquen las bolsas escondidas. Cada bolsa tiene una gema y la pista final. ¡Entreguen la piedra al monitor para completar el pectoral!"
+    },
+    {
+        "id": "9",
+        "title": "El Censo de Israel",
+        "subtitle": "Registro de Exploradores",
+        "difficulty": "hard",
+        "color": "#B078B3",
+        "image": "images/icons/9.png",
+        "activity": "Trabajen en duplas con su registro del censo. Deberán observar los datos y responder las preguntas correctamente para completar la estación."
+    },
+    {
+        "id": "10",
+        "title": "No Olvides el Camino",
+        "subtitle": "Libro de Recordatorios",
+        "difficulty": "easy",
+        "color": "#EC9D45",
+        "image": "images/icons/10.png",
+        "activity": "Acuérdate de todo el camino por donde te ha traído Jehová. Recorre el sendero y recuerda cada victoria que has tenido en esta aventura."
+    }
+  ]
+}

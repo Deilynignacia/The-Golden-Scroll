@@ -25,6 +25,7 @@ body {
 }
 
 main {
+    padding-bottom: 80px;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -34,4 +35,77 @@ main {
     margin: 0 auto;
     height: 85vh;
     padding: 20px 0;
+}
+
+/* Header */
+#team-profile {
+    width: 45px;
+    height: 45px;
+    border-radius: 50%;
+    border: 2px solid black;
+    background-color: white;
+    background-size: cover;
+    background-position: center;
+}
+
+.logo img {
+    max-width: 90px;
+    height: auto;
+    filter: drop-shadow(4px 4px 0px black);
+}
+
+#notifications {
+    width: 30px;
+    height: auto;
+}
+
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px;
+    width: 100%;
+}
+
+
+footer {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 70px;
+
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    z-index: 1000;
+
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    width: 100%;
+    padding: 10px 0;
+    background-color: var(--color-background);
+}
+
+
+.nav-icon {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 10px;
+    text-decoration: none;
+    width: 60px;
+}
+
+.nav-icon img {
+    width: 28px;
+    height: auto;
+    transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+/* Active */
+.nav-icon.active img {
+    transform: scale(1.3) translateY(-2px);
+    filter: drop-shadow(2px 2px 0px rgba(0,0,0,0.5));
 }

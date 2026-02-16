@@ -3,9 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>The Golden Scroll - Bible</title>
+    <title>The Golden Scroll - Mission Details</title>
     <link rel="stylesheet" href="styles/main.css">
-    <link rel="stylesheet" href="styles/bible.css">
+    <link rel="stylesheet" href="styles/missions.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&family=Fredoka:wght@700&display=swap" rel="stylesheet">
@@ -20,29 +20,22 @@
     </header>
 
     <main>
-        <section id="book-list">
-            <button class="book-btn" data-book="genesis">
-                <h2>Genesis</h2>
-            </button>
-            <button class="book-btn" data-book="exodus">
-                <h2>Exodus</h2>
-            </button>
-            <button class="book-btn" data-book="leviticus">
-                <h2>Leviticus</h2>
-            </button>
-            <button class="book-btn" data-book="numbers">
-                <h2>Numbers</h2>
-            </button>
-            <button class="book-btn" data-book="deuteronomy">
-                <h2>Deuteronomy</h2>
-            </button>
-        </section>
+        <section id="mission-info" class="parchment">
+            <button id="back-to-missions">⇦</button>
+            
+            <div class="mission-header">
+                <img id="icon-dtl" src="" alt="Mission Icon">
+                <h1 id="title-dtl"></h1>
+                <span id="difficulty-dtl" class="badge"></span>
+            </div>
 
-        <section id="chapter-list" class="hidden"></section>
-
-        <section id="viewer" class="hidden">
-            <button id="back-to">⇦</button>
-            <div id="scripture-text" class="scroll"></div>
+            <div class="mission-dtl">
+                <p id="description"></p>
+                
+                <div class="mentor-note">
+                    <p>⚠️ Remember that only your Mentor can unlock this scroll after you complete the task!</p>
+                </div>
+            </div>
         </section>
     </main>
 
@@ -59,5 +52,4 @@
     </footer>
 
     <script type="module" src="scripts/index.mjs"></script>
-    <script type="module" src="scripts/bible.mjs"></script>
 </body></html>
