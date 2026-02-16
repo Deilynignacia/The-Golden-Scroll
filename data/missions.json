@@ -67,30 +67,30 @@
     },
     {
         "id": "8",
-        "title": "Las 12 Piedras Preciosas",
-        "subtitle": "El Pectoral del Sumo Sacerdote",
+        "title": "The Twelve Precious Stones",
+        "subtitle": "The Golden Breastplate",
         "difficulty": "medium",
         "color": "#55b4a1",
         "image": "images/icons/8.png",
-        "activity": "Busquen las bolsas escondidas. Cada bolsa tiene una gema y la pista final. ¡Entreguen la piedra al monitor para completar el pectoral!"
+        "activity": "The people of Israel carried the Tabernacle with them as they traveled through the desert. The Tabernacle was like a 'moving temple' that went ahead of them, and they set it up every time they stopped. The High Priest wore a gold breastplate with 12 precious stones that represented the 12 tribes of Israel. Find one of the 12 bags with a colored stone inside, open it, and give it to your leader!"
     },
     {
         "id": "9",
-        "title": "El Censo de Israel",
-        "subtitle": "Registro de Exploradores",
+        "title": "The Census of Israel",
+        "subtitle": "How many?",
         "difficulty": "hard",
         "color": "#B078B3",
         "image": "images/icons/9.png",
-        "activity": "Trabajen en duplas con su registro del censo. Deberán observar los datos y responder las preguntas correctamente para completar la estación."
+        "activity": "The book of Numbers is called that because it starts and ends with a census. Get a census sheet from your leader and answer the questions using the information."
     },
     {
         "id": "10",
-        "title": "No Olvides el Camino",
-        "subtitle": "Libro de Recordatorios",
+        "title": "The Path",
+        "subtitle": "Don't forget where you came from.",
         "difficulty": "easy",
         "color": "#EC9D45",
         "image": "images/icons/10.png",
-        "activity": "Acuérdate de todo el camino por donde te ha traído Jehová. Recorre el sendero y recuerda cada victoria que has tenido en esta aventura."
+        "activity": "Moses reminded his people of the whole journey they had traveled, the challenges they had faced, and how they overcame them. He reminded them of everything they had learned. Now, remember what you received in each of your missions!"
     }
   ]
 }
