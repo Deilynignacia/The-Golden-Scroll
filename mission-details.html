@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>The Golden Scroll - Mission Details</title>
     <link rel="stylesheet" href="styles/main.css">
-    <link rel="stylesheet" href="styles/missions.css">
+    <link rel="stylesheet" href="styles/mission-details.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&family=Fredoka:wght@700&display=swap" rel="stylesheet">
@@ -20,13 +20,15 @@
     </header>
 
     <main>
+        <!-- Empty Detail Section -->
         <section id="mission-info" class="parchment">
             <button id="back-to-missions">⇦</button>
             
             <div class="mission-header">
                 <img id="icon-dtl" src="" alt="Mission Icon">
                 <h1 id="title-dtl"></h1>
-                <span id="difficulty-dtl" class="badge"></span>
+                <h2 id="subtitle-dtl"></h2> 
+                <h3 id="difficulty-dtl"></h3>
             </div>
 
             <div class="mission-dtl">
@@ -38,6 +40,7 @@
             </div>
         </section>
     </main>
+    <div style="height: 10rem;"></div>
 
     <footer>
         <a href="index.html" class="nav-icon">
@@ -52,4 +55,5 @@
     </footer>
 
     <script type="module" src="scripts/index.mjs"></script>
+    <script type="module" src="scripts/missionDetails.mjs"></script>
 </body></html>

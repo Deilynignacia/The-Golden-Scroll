@@ -1,0 +1,115 @@
+body {
+    padding-bottom: 8rem; 
+}
+
+main {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-bottom: 2rem;
+}
+
+.parchment {
+    background-color: #fdf5e6;
+    border: 3px solid black;
+    box-shadow: 8px 8px 0px black;
+    border-radius: 15px;
+    padding: 20px;
+    margin: 20px auto 100px auto; 
+    width: 90%;
+    max-width: 400px;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.mission-header {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+#icon-dtl {
+    width: 150px;
+    height: 150px;
+    margin: 10px auto;
+    object-fit: cover;
+    border: 3px solid black;
+    border-radius: 50%;
+    box-shadow: 4px 4px 0px black;
+}
+
+#title-dtl {
+    font-size: 1.8rem;
+    color: #202020;
+    -webkit-text-stroke: 1px black;
+    text-shadow: 2px 2px 0px rgba(0,0,0,0.1);
+    margin-top: 10px;
+}
+
+#subtitle-dtl {
+    font-size: 1.1rem;
+    color: var(--color-support);
+    font-style: italic;
+    margin-bottom: 5px;
+}
+
+#difficulty-dtl {
+    font-size: 0.9rem;
+    background: black;
+    color: white;
+    padding: 5px 15px;
+    border-radius: 20px;
+    text-align: center;
+    display: inline-block;
+}
+
+/* Activity */
+.mission-dtl {
+    background: white;
+    border: 2px solid black;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 4px 4px 0px rgba(0,0,0,0.05);
+}
+
+#description {
+    font-family: var(--font-body);
+    line-height: 1.6;
+    color: #333;
+    text-align: left;
+}
+
+/* Monitor's note */
+.mentor-note {
+    margin-top: 20px;
+    padding: 10px;
+    border-left: 5px solid var(--color-primary);
+    background-color: #fffad0;
+    font-size: 0.85rem;
+    font-style: italic;
+}
+
+/* Back to Missions */
+#back-to-missions {
+    align-self: flex-start;
+    width: 45px;
+    height: 45px;
+    border-radius: 50%; 
+    background-color: var(--color-secondary);
+    border: 3px solid black;
+    box-shadow: 3px 3px 0px black;
+    color: white;
+    font-size: 1.5rem;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 15px;
+    transition: 0.1s;
+}
+
+#back-to-missions:active {
+    transform: translate(3px, 3px);
+    box-shadow: 0px 0px 0px black;
+}

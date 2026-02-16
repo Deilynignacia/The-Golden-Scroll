@@ -6,7 +6,6 @@
         "difficulty": "easy",
         "color": "#EC9D45",
         "image": "images/icons/1.png",
-        "reference": "",
         "activity": "Cain and Abel could not solve their problems and faced the consequences. To complete this challenge, go to one of the 'Forest Friends' tables, a game about resolving conflicts."
     },
     {
@@ -16,7 +15,6 @@
         "difficulty": "medium",
         "color": "#55b4a1",
         "image": "images/icons/2.png",
-        "reference": "",
         "activity": "Noah put a pair of every animal on the ark. Play the memory game by matching the animal pairs. When you find a pair, take it to the ark on the monitor’s table."
     },
     {
@@ -72,7 +70,7 @@
         "difficulty": "medium",
         "color": "#55b4a1",
         "image": "images/icons/8.png",
-        "activity": "The people of Israel carried the Tabernacle with them as they traveled through the desert. The Tabernacle was like a 'moving temple' that went ahead of them, and they set it up every time they stopped. The High Priest wore a gold breastplate with 12 precious stones that represented the 12 tribes of Israel. Find one of the 12 bags with a colored stone inside, open it, and give it to your leader!"
+        "activity": "The people of Israel carried the Tabernacle with them as they traveled through the desert. The Tabernacle was like a 'moving temple' that went ahead of them, and they set it up every time they stopped. The High Priest wore a gold breastplate with 12 precious stones that represented the 12 tribes of Israel. Find one of the 12 bags with a colored stone inside, open it, and give it to your monitor!"
     },
     {
         "id": "9",
@@ -81,7 +79,7 @@
         "difficulty": "hard",
         "color": "#B078B3",
         "image": "images/icons/9.png",
-        "activity": "The book of Numbers is called that because it starts and ends with a census. Get a census sheet from your leader and answer the questions using the information."
+        "activity": "The book of Numbers is called that because it starts and ends with a census. Get a census sheet from your monitor and answer the questions using the information."
     },
     {
         "id": "10",

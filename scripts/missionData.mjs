@@ -1,0 +1,95 @@
+// JS version of JSON
+export const missionData = {
+        "missions": [
+            {
+                "id": "1",
+                "title": "Adan and Eves's family",
+                "subtitle": "Conflict resolution",
+                "difficulty": "easy",
+                "image": "images/icons/1.png",
+                "activity": "Cain and Abel could not solve their problems and faced the consequences. To complete this challenge, go to one of the 'Forest Friends' tables, a game about resolving conflicts."
+            },
+
+            {
+                "id": "2",
+                "title": "Noah's Ark",
+                "subtitle": "Memory Game",
+                "difficulty": "medium",
+                "image": "images/icons/2.png",
+                "activity": "Noah put a pair of every animal on the ark. Play the memory game by matching the animal pairs. When you find a pair, take it to the ark on the monitor’s table."
+            },
+
+            {
+                
+                "id": "3",
+                "title": "Babel Tower",
+                "subtitle": "Languages bricks",
+                "difficulty": "hard",
+                "image": "images/icons/3.png",
+                "activity": "The Lord confused the languages of the people in Babel as a punishment for their pride, but thanks to that, many new languages were born! Using the Google Lens translator, look for the cup tower in the language assigned by the monitor. Use the cups to build the hidden sentence."
+            },
+
+            {
+                "id": "4",
+                "title": "Abrahamic Covenant",
+                "subtitle": "All the Nations of the Earth",
+                "difficulty": "easy",
+                "image": "images/icons/4.png",
+                "activity": "The Lord promised Abraham that all the nations of the earth would be blessed through his family. Find only one flag for each of the nations hidden around the room. Put them in numerical order using the numbers in the bottom right corner. Then, shine your phone’s flashlight through them."
+            },
+
+            {
+                "id": "5",
+                "title": "Jodeph of Egypt",
+                "subtitle": "A Story of twelve Brothers",
+                "difficulty": "medium",
+                "image": "images/icons/5.png",
+                "activity": "Joseph faced many challenges throughout his life, but in the end, his strength to overcome them blessed his whole family and all of Egypt. Find the box with your name on it and use the materials inside to create a piece of art about the part of the story written on your box. Once your artwork is ready, show it to your monitor."
+            },
+
+            {
+                "id": "6",
+                "title": "The Ten Plagues",
+                "subtitle": "God Delivered His People",
+                "difficulty": "hard",
+                "image": "images/icons/6.png",
+                "activity": "When Pharaoh refused to free the people of Israel, the Lord sent 10 plagues through Moses. After the tenth one, the people were finally set free! Solve the riddles about the plagues in your app (they are in order!)."
+            },
+
+            {
+                "id": "7",
+                "title": "The ten Commandments",
+                "subtitle": "Stone Puzzle",
+                "difficulty": "easy",
+                "image": "images/icons/7.png",
+                "activity": "The Lord gave Moses stone tablets on Mount Sinai with the 10 most important commandments for His people to follow. When Moses came down, he found the people worshiping a golden calf. Moses was very angry; he broke the tablets and destroyed the golden calf. The Lord then asked Moses to make new stone tablets and gave new promises to His people. Put the 10 Commandments puzzle together by sticking the pieces onto the plastic sheet."
+            },
+
+            {
+                "id": "8",
+                "title": "The Twelve Precious Stones",
+                "subtitle": "The Golden Breastplate",
+                "difficulty": "medium",
+                "image": "images/icons/8.png",
+                "activity": "The people of Israel carried the Tabernacle with them as they traveled through the desert. The Tabernacle was like a 'moving temple' that went ahead of them, and they set it up every time they stopped. The High Priest wore a gold breastplate with 12 precious stones that represented the 12 tribes of Israel. Find one of the 12 bags with a colored stone inside, open it, and give it to your monitor!"
+            },
+
+            {
+                "id": "9",
+                "title": "The Census of Israel",
+                "subtitle": "How many?",
+                "difficulty": "hard",
+                "image": "images/icons/9.png",
+                "activity": "The book of Numbers is called that because it starts and ends with a census. Get a census sheet from your monitor and answer the questions using the information."
+            },
+
+            {
+                "id": "10",
+                "title": "The Path",
+                "subtitle": "Don't forget where you came from.",
+                "difficulty": "easy",
+                "image": "images/icons/10.png",
+                "activity": "Moses reminded his people of the whole journey they had traveled, the challenges they had faced, and how they overcame them. He reminded them of everything they had learned. Now, remember what you received in each of your missions!"
+            }
+        ]
+    };
