@@ -24,6 +24,29 @@ main {
     flex: 1;
 }
 
+/* Progress Tracker */
+#progress {
+    width: 85%;
+    height: 35px;
+    background-color: white !important;
+    border: 3px solid black;
+    border-radius: 15px;
+    margin: 20px auto;
+    position: relative;
+    overflow: hidden;
+    box-shadow: 4px 4px 0px black;
+}
+
+/* Progress  */
+.progress-fill {
+    height: 100%;
+    width: 0%;
+    background: linear-gradient(90deg, #853e89, #eec8f0) !important; /* Purple Gradient */
+    transition: width 0.6s ease-in-out;
+    border-right: 3px solid black;
+}
+
+
 /* Back to Mission */
 #go-back {
     display: block;

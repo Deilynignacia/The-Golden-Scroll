@@ -1,37 +1,29 @@
-// Index Profile
+// Team
 const teamData = JSON.parse(localStorage.getItem("goldenScroll_team"));
-if (teamData) {
+
+// Progress Tracker
+const progressFill = document.querySelector('.progress-fill');
+
+if (progressFill) {
+    let percentage = 10;
+
+    if (teamData && teamData.progress) {
+        const total = 10; 
+        const unlocked = Object.values(teamData.progress).filter(s => s !== "locked").length;
+        percentage = (unlocked / total) * 100;
+    }
+
+    progressFill.style.width = `${percentage}%`;
+}
+
+// Cat-Avatar API
+if (teamData && document.getElementById('team-profile')) {
     document.getElementById('team-profile').style.backgroundImage = `url(${teamData.avatar})`;
 }
 
 // Menu
-const btnMap = document.getElementById('map');
-const btnRanking = document.getElementById('ranking');
-const btnNotes = document.getElementById('notes');
-const btnBible = document.getElementById('bible');
-
-if (btnMap) {
-    btnMap.addEventListener('click', () => {
-        window.location.href = "map.html";
-    });
-}
-
-if (btnRanking) {
-    btnRanking.addEventListener('click', () => {
-        window.location.href = "ranking.html";
-    });
-}
-
-if (btnNotes) {
-    btnNotes.addEventListener('click', () => {
-        window.location.href = "notes.html";
-    });
-}
-
-if (btnBible) {
-    btnBible.addEventListener('click', () => {
-        window.location.href = "bible.html";
-    });
-}
-
-
+const buttons = { 'map': 'map.html', 'ranking': 'ranking.html', 'notes': 'notes.html', 'bible': 'bible.html' };
+Object.entries(buttons).forEach(([id, url]) => {
+    const btn = document.getElementById(id);
+    if (btn) btn.addEventListener('click', () => { window.location.href = url; });
+});
