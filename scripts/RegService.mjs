@@ -1,3 +1,4 @@
+import { missionData } from './missionData.mjs';
 import { saveTeamToCloud } from './Firebase.mjs';
 
 // Cat Avatar API
@@ -9,11 +10,19 @@ export function generateAvatar(teamName) {
 }
 
 export async function registerTeam(teamName, avatarUrl) {
+
+    const progressMap = {};
+    
+    missionData.missions.forEach((mission, index) => {
+        progressMap[mission.id] = (index === 0) ? "unlocked" : "locked";
+    });
+
     const teamData = {
         name: teamName,
         avatar: avatarUrl,
         score: 0,
         currentChallenge: 1,
+        progress: progressMap,
         lastActive: new Date().getTime()
     };
 
@@ -23,7 +32,7 @@ export async function registerTeam(teamName, avatarUrl) {
     // Firebase
     try {
         await saveTeamToCloud(teamData);
-        console.log("Your team's cat was successfully saved!");
+        console.log("Your team's cat and progress were successfully saved!");
     } catch (error) {
         console.error("Oh no! The cat got lost!", error);
     }
