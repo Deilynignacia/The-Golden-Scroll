@@ -10,21 +10,19 @@ const modalMessage = document.getElementById('modal-message');
 const btnGoIndex = document.getElementById('btn-go-index');
 
 btnMeetCat.addEventListener('click', async () => {
-    const name = teamInput.value.trim() || "Adan"; 
-    
+    const name = teamInput.value.trim() || "Adan";
+
     // Cat URL
-    const avatarUrl = generateAvatar(name); 
+    const avatarUrl = generateAvatar(name);
     catImage.style.backgroundImage = `url("${avatarUrl}")`;
 
     // Firebase y LocalStorage
     await registerTeam(name, avatarUrl);
     modalMessage.innerText = `${name} team has been successfully registered!`;
-    
     modal.style.display = 'flex';
 });
 
-// Go to 
+// Go to
 btnGoIndex.addEventListener('click', () => {    
     window.location.href = "index.html";
 });
-

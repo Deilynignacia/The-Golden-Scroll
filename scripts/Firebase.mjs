@@ -12,9 +12,9 @@ const firebaseConfig = {
 };
 
 const app = initializeApp(firebaseConfig);
+
 export const db = getFirestore(app);
 
 export async function saveTeamToCloud(teamData) {
-    
-    await setDoc(doc(db, "teams", teamData.name), teamData);
+  await setDoc(doc(db, "teams", teamData.name), teamData);
 }
