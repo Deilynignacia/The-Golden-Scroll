@@ -40,7 +40,7 @@ export const missionData = {
 
             {
                 "id": "5",
-                "title": "Jodeph of Egypt",
+                "title": "Joseph of Egypt",
                 "subtitle": "A Story of twelve Brothers",
                 "difficulty": "medium",
                 "image": "images/icons/5.png",
