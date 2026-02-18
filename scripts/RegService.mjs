@@ -9,7 +9,8 @@ export function generateAvatar(teamName) {
     return `https://cat-avatars.vercel.app/api/cat?name=${encodeURIComponent(name)}`;
 }
 
-export async function registerTeam(teamName, avatarUrl) {
+// Form data
+export async function registerTeam(teamName, avatarUrl, childName, companionName) {
 
     const progressMap = {};
     
@@ -20,6 +21,8 @@ export async function registerTeam(teamName, avatarUrl) {
     const teamData = {
         name: teamName,
         avatar: avatarUrl,
+        childName: childName,       
+        companionName: companionName, 
         score: 0,
         currentChallenge: 1,
         progress: progressMap,

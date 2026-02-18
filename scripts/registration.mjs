@@ -1,9 +1,7 @@
 import { generateAvatar, registerTeam } from './RegService.mjs';
 
 const btnMeetCat = document.getElementById('btn-meet-cat');
-// Register Button
 const btnFinalRegister = document.getElementById('btn-final-register'); 
-
 const catImage = document.getElementById('cat-avatar');
 const teamInput = document.getElementById('team-name');
 
@@ -11,19 +9,14 @@ const teamInput = document.getElementById('team-name');
 const childInput = document.getElementById('chname');
 const companionInput = document.getElementById('coname');
 
-// Modal
-const modal = document.getElementById('modal-success');
-const modalMessage = document.getElementById('modal-message');
-const btnGoIndex = document.getElementById('btn-go-index');
-
 let currentAvatarUrl = ""; 
 
-// Cat Avatar API
+// GenerateCat Avatar
 btnMeetCat.addEventListener('click', () => {
     const name = teamInput.value.trim() || "Adan";
     currentAvatarUrl = generateAvatar(name);
     catImage.style.backgroundImage = `url("${currentAvatarUrl}")`;
-    });
+});
 
 // Save
 btnFinalRegister.addEventListener('click', async () => {
@@ -36,12 +29,13 @@ btnFinalRegister.addEventListener('click', async () => {
         return;
     }
 
-    await registerTeam(teamName, currentAvatarUrl, childName, companionName);
-
-    modalMessage.innerText = `Team ${teamName} is ready for the adventure!`;
-    modal.style.display = 'flex';
-});
-
-btnGoIndex.addEventListener('click', () => {    
-    window.location.href = "index.html";
+    try {
+        await registerTeam(teamName, currentAvatarUrl, childName, companionName);
+        
+        // Go to Home
+        window.location.href = "index.html";
+    } catch (error) {
+        console.error("Error saving profile:", error);
+        alert("Something went wrong. Please try again.");
+    }
 });
