@@ -11,29 +11,35 @@
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&family=Fredoka:wght@700&display=swap" rel="stylesheet">
 </head>
 <body> 
-    <main>
-        <div class="logo">
-            <img src="images/logo.png" alt="logo">
-        </div>
+<main>
+    <div class="logo">
+        <img src="images/logo.png" alt="logo">
+    </div>
 
-        <div class="avatar-container">
-            <div id="cat-avatar" class="cat-avatar"></div>
-        </div>
+    <div class="avatar-container">
+        <div id="cat-avatar" class="cat-avatar"></div>
+    </div>
 
-        <button id="btn-meet-cat">MEET MY CAT!</button>
+    <input type="text" id="team-name" placeholder="ENTER YOUR TEAM NAME">
+    <button id="btn-meet-cat">MEET MY CAT!</button>
 
-        <input type="text" id="team-name" placeholder="ENTER YOUR TEAM NAME">
-
-        <div class="welcome-section">
-            <img src="images/orange-cat.png" alt="orange cat" class="orange-cat">
-        </div>
-        <div id="modal-success" class="modal" style="display:none;">
-            <div class="modal-content">
-                <h3>¡READY TO GO!</h3>
-                <p id="modal-message"></p> 
-                <button id="btn-go-index">START ADVENTURE</button>
+    <div class="profile-data">
+        <form id="extra-data-form">
+            <div class="input-field">
+                <label for="chname">Child's Name:</label>
+                <input type="text" id="chname" required>
             </div>
-        </div>
+                
+            <div class="input-field">
+                <label for="coname">Companion's Name:</label>
+                <input type="text" id="coname" required>
+            </div>
+            
+            <button type="button" id="btn-final-register">START ADVENTURE</button>
+        </form>        
+    </div>
+
+    </main>>
     </main>
 
     <script type="module" src="scripts/registration.mjs"></script>

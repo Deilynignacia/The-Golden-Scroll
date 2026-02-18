@@ -7,18 +7,20 @@ missionButtons.forEach(button => {
     const id = button.getAttribute('data-id');
     const status = teamData?.progress?.[id] || "locked";
 
+    const lockedImgPath = "images/padlock.jpg";
+
     if (status === "locked") {
         // Locked
         button.classList.add('is-locked');
         button.setAttribute('disabled', 'true');
+
+        button.innerHTML = `<img src="${lockedImgPath}" alt="Locked" class="lock-icon">`;
     }
 
     // Button can only be clicked if it is unlocked
-    button.addEventListener('click', () => {
-        if (status === "unlocked") {
-            window.location.href = `mission-details.html?id=${id}`;
-        } else {
-            console.log(`Mission ${id} is locked at the moment.`);
-        }
+        button.addEventListener('click', () => {
+                if (status === "unlocked") {
+                    window.location.href = `mission-details.html?id=${id}`;
+                }
     });
 });
