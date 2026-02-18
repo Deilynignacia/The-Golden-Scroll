@@ -1,0 +1,120 @@
+main {
+    padding: 20px;
+    background-color: var(--color-background);
+    min-height: calc(100vh - 140px);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+/* Title */
+.ranking-title {
+    font-family: var(--font-titles);
+    font-size: 2.2rem;
+    color: var(--color-primary);
+    text-align: center;
+    margin-bottom: 30px;
+    -webkit-text-stroke: 1.5px black;
+    filter: drop-shadow(3px 3px 0px black);
+    text-transform: uppercase;
+}
+
+/* Leaderboard */
+.leaderboard-list {
+    width: 85%;
+    max-width: 400px;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    padding-bottom: 80px;
+}
+
+/* Top Ranking */
+.rank-item {
+    display: flex;
+    align-items: center;
+    background-color: #f2f0ed;
+    border: 3px solid rgb(19, 19, 19);
+    border-radius: 20px;
+    padding: 12px 20px;
+    box-shadow: 4px 4px 0px black;
+    transition: transform 0.2s;
+}
+
+/* First Place */
+.rank-item:nth-child(1) { 
+    background: linear-gradient(135deg, #caab3b 0%, #e3d49c 50%, #F6CC39 100%);
+    transform: scale(1.1);
+    border-color: #856d1c;
+    z-index: 2;
+}
+
+/* Second Place */
+.rank-item:nth-child(2) { 
+    background: linear-gradient(135deg, #9a9a9a 0%, #FFFFFF 50%, #575656 100%);
+    border-color: #474747;
+}
+
+/* Third Place */
+.rank-item:nth-child(3) { 
+    background: linear-gradient(135deg, #453324 0%, #F3D1B5 50%, #E6B38A 100%);
+    border-color: #453525;
+}
+
+/* First Place Crown */
+.rank-item:nth-child(1)::after {
+    content: '👑';
+    position: absolute;
+    top: -30px;
+    left: 25px;
+    font-size: 3rem;
+    transform: rotate(-30deg);
+}
+
+/* Numbers */
+.rank-number {
+    font-family: var(--font-titles);
+    font-size: 1.2rem;
+    min-width: 40px;
+    color: black;
+}
+
+/* Avatar */
+.rank-avatar {
+    width: 55px;
+    height: 55px;
+    border-radius: 50%;
+    border: 2px solid black;
+    background-size: cover;
+    background-position: center;
+    background-color: white;
+    margin-right: 15px;
+}
+
+/* Team Info */
+.rank-info {
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+.rank-team-name {
+    font-family: var(--font-titles);
+    font-size: 1.1rem;
+    color: black;
+}
+
+.rank-score {
+    font-family: var(--font-body);
+    font-weight: bold;
+    font-size: 0.9rem;
+    color: rgba(0,0,0,0.7);
+}
+
+/* Loading */
+.loading-text {
+    font-family: var(--font-body);
+    text-align: center;
+    margin-top: 50px;
+    font-weight: bold;
+}
