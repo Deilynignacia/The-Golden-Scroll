@@ -154,7 +154,7 @@ main {
     gap: 15px;
 }
 
-/* Campos de entrada (Label + Input) */
+/* Input */
 .input-field {
     display: flex;
     flex-direction: column;
@@ -185,10 +185,10 @@ main {
     box-shadow: 2px 2px 0px black;
 }
 
-/* Botón Final de Registro */
+/* Register Button */
 #btn-final-register {
     width: 100%;
-    background-color: var(--color-primary); /* El color naranja o principal */
+    background-color: var(--color-primary); 
     color: black;
     font-family: var(--font-titles);
     font-weight: bold;

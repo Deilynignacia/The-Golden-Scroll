@@ -19,11 +19,11 @@ async function loadRanking() {
     if (!leaderboardContainer) return;
 
     try {
-        // Hacemos la consulta a la colección "teams" ordenada por puntaje
+        // Make the consult by score
         const q = query(collection(db, "teams"), orderBy("score", "desc"));
         const querySnapshot = await getDocs(q);
 
-        leaderboardContainer.innerHTML = ""; // Quitamos el "Loading..."
+        leaderboardContainer.innerHTML = "";
 
         let rank = 1;
         querySnapshot.forEach((doc) => {
@@ -32,7 +32,7 @@ async function loadRanking() {
             const item = document.createElement('div');
             item.className = 'rank-item';
             
-            // Usamos template strings para inyectar los datos del equipo
+            // Use template strings to insert data
             item.innerHTML = `
                 <span class="rank-number">#${rank}</span>
                 <div class="rank-avatar" style="background-image: url('${data.avatar}')"></div>
@@ -50,5 +50,4 @@ async function loadRanking() {
     }
 }
 
-// Escuchamos el evento de tu layout.js
 document.addEventListener('layoutReady', loadRanking);

@@ -1,0 +1,202 @@
+#mentor-detail {
+    padding: 20px;
+    max-width: 800px;
+    margin: 0 auto;
+    padding-bottom: 120px;
+}
+
+/* Mission Title and Icon */
+.mission-header {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    margin-bottom: 30px;
+}
+
+#mission-icon {
+    width: 90px;
+    height: 90px;
+    border-radius: 50%; 
+    border: 3px solid #000;
+    object-fit: cover;
+    display: block;
+    background-color: white;
+}
+
+#mission-title {
+    font-family: var(--font-titles);
+    font-size: 1.5rem;
+    margin: 0;
+    text-transform: uppercase;
+    color: #1c1c1c;
+}
+
+#mission-subtitle {
+    font-family: var(--font-body);
+    font-style: italic;
+    font-weight: bold;
+    margin: 5px 0 0;
+    opacity: 0.8;
+}
+
+.mentor-section {
+    margin-bottom: 25px;
+    background: white;
+    padding: 1.5rem;
+    border-radius: 15px;
+    border: 1px solid rgba(0, 0, 0, 0.05);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+    transition: transform 0.2s ease;
+}
+
+.mentor-section:hover {
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.12);
+    transform: translateY(-2px);
+}
+
+.mentor-section h2 {
+    font-family: var(--font-titles);
+    font-size: 1.2rem;
+    color: var(--color-support);
+    margin-top: 0;
+    margin-bottom: 15px;
+    border-bottom: 2px solid #f0f0f0;
+    padding-bottom: 5px;
+}
+
+/* Preparation Guide */
+#prep-materials ul {
+    padding-left: 20px;
+    margin-bottom: 15px;
+}
+
+#prep-materials li {
+    margin-bottom: 5px;
+    font-family: var(--font-body);
+    color: #444;
+}
+
+#prep-setup {
+    background: #ffdf86;
+    padding: 15px;
+    border-radius: 10px;
+    font-style: italic;
+    font-family: var(--font-body);
+}
+
+/* Script */
+.script-box {
+    background-color: #9cf3e7;
+    padding: 20px;
+    border-radius: 10px;
+}
+
+#script-intro {
+    font-family: var(--font-body);
+    font-size: 1.05rem;
+    line-height: 1.7;
+    margin-bottom: 15px;
+    color: #1c1c1c;
+}
+
+.scripture-tag {
+    display: inline-block;
+    background: #1c1c1c;
+    color: white;
+    padding: 10px 20px;
+    border-radius: 20px;
+    font-family: var(--font-subtitles);
+    font-size: 0.9rem;
+}
+
+.mentor-section.secret, 
+.mentor-section.teams {
+    background: transparent;
+    padding: 0;
+    border: none;
+    box-shadow: none;
+    width: 100%;
+}
+
+.mentor-section.secret:hover,
+.mentor-section.teams:hover {
+    transform: none;
+}
+
+/* Secret Letter */
+.letter-badge {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+    background-color: #1c1c1c;
+    color: #ffffff;
+    padding: 20px;
+    border-radius: 20px;
+    border: 4px solid #000;
+    box-shadow: 8px 8px 0px rgba(0,0,0,0.2);
+    margin: 10px 0 30px;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+#secret-letter {
+    font-family: 'Fredoka', sans-serif;
+    font-size: 4rem; 
+    color: #eed22b !important; 
+    line-height: 1;
+    text-shadow: 2px 2px 0px #000;
+}
+
+/* Teams List */
+#teams-list-container {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.team-unlock-card {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 25px;
+    background: #ffffff;
+    border: 3px solid #000;
+    border-radius: 15px;
+    box-shadow: 6px 6px 0px #000;
+    transition: all 0.2s ease;
+    box-sizing: border-box;
+}
+
+.team-unlock-card span {
+    font-family: var(--font-titles);
+    font-size: 1.1rem;
+    font-weight: bold;
+    color: #1c1c1c;
+}
+
+/* Action Buttons */
+.team-unlock-card button {
+    cursor: pointer;
+    background-color: #ffdf86;
+    color: #000;
+    border: 3px solid #000;
+    padding: 10px 20px;
+    border-radius: 10px;
+    font-family: var(--font-titles);
+    font-weight: bold;
+    text-transform: uppercase;
+    box-shadow: 4px 4px 0px #000;
+    transition: all 0.1s;
+}
+
+.team-unlock-card button:hover {
+    background-color: #ffe8a3;
+    transform: translate(-2px, -2px);
+    box-shadow: 6px 6px 0px #000;
+}
+
+.team-unlock-card button:active {
+    transform: translate(2px, 2px);
+    box-shadow: 0px 0px 0px #000;
+}

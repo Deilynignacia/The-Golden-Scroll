@@ -1,9 +1,8 @@
-// index.mjs corregido
 document.addEventListener('layoutReady', () => {
-    // 1. Datos del equipo
+    // Team Data
     const teamData = JSON.parse(localStorage.getItem("goldenScroll_team"));
 
-    // 2. Lógica del Progress Tracker
+    // Progress Tracker
     const progressFill = document.querySelector('.progress-fill');
     if (progressFill) {
         let percentage = 10;
@@ -15,20 +14,20 @@ document.addEventListener('layoutReady', () => {
         progressFill.style.width = `${percentage}%`;
     }
 
-    // 3. Foto del Header (Ahora sí lo encontrará)
+    // Header
     const headerProfile = document.getElementById('team-profile');
     if (teamData && headerProfile) {
         headerProfile.style.backgroundImage = `url(${teamData.avatar})`;
     }
 
-    // 4. Menú de Navegación
+    // Menu
     const buttons = { 'map': 'map.html', 'ranking': 'ranking.html', 'notes': 'notes.html', 'bible': 'bible.html' };
     Object.entries(buttons).forEach(([id, url]) => {
         const btn = document.getElementById(id);
         if (btn) btn.addEventListener('click', () => { window.location.href = url; });
     });
 
-    // 5. Lógica del Modal de Perfil
+    // Profile
     const profileBtn = document.getElementById('team-profile');
     const modalProfile = document.getElementById('modal-profile');
     const closeProfile = document.getElementById('close-profile');

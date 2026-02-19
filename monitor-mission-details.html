@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Golden Scroll - Monitor Hub</title>
+    <link rel="stylesheet" href="styles/main.css">
+    <link rel="stylesheet" href="styles/monitor-details.css"> 
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&family=Fredoka:wght@700&display=swap" rel="stylesheet">
+
+</head>
+<body>
+
+    <div id="header-container"></div> 
+    
+    <main id="mentor-detail">
+        <div class="mission-header">
+            <img id="mission-icon" src="" alt="icon">
+            <div>
+                <h1 id="mission-title">Loading...</h1>
+                <p id="mission-subtitle"></p>
+            </div>
+        </div>
+
+        <section class="mentor-section prep">
+            <h2>PREAPARATION GUIDE</h2>
+            <div id="prep-materials" class="content"></div>
+            <div id="prep-setup" class="content"></div>
+        </section>
+
+        <section class="mentor-section platform">
+            <h2>WHAT THE PARTICIPANT SEE</h2>
+            <div id="childrenPlatform" class="content"></div>
+        </section>
+
+        <section class="mentor-section script">
+            <h2>YOUR SCRIPT</h2>
+            <div class="script-box">
+                <p id="script-intro"></p>
+                <div class="scripture-tag">📖 <span id="script-reference"></span></div>
+            </div>
+        </section>
+
+        <section class="mentor-section secret">
+            <div class="letter-badge">
+                <span>SECRET LETTER:</span>
+                <strong id="secret-letter">?</strong>
+            </div>
+        </section>
+
+        <section class="mentor-section teams">
+            <h2>UNLOCK TEAMS</h2>
+            <div id="teams-list-container"></div>
+        </section>
+    </main>
+
+    <div id="footer-container"></div>
+
+    <script src="scripts/layout.js"></script>
+    <script type="module" src="scripts/monitorLogic.mjs"></script>
+</body>
+</html>

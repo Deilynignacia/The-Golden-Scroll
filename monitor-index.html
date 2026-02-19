@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Glden Scroll - Missions Menu - Monitor Hub</title>
+    <link rel="stylesheet" href="styles/main.css">
+    <link rel="stylesheet" href="styles/monitor.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&family=Fredoka:wght@700&display=swap" rel="stylesheet">
+
+</head>
+<body>
+    <div id="header-container"></div>
+
+    <main>
+        <h1>MONITORS</h1>
+        
+        <div class="open-message-container">
+            <button id="open-message-btn">✉️ A message from the team</button>
+        </div>
+
+        <h2 class="ranking-title">SELECT YOUR STATION</h2>
+        <div id="missions-grid" class="missions-grid"></div>
+    </main>
+
+    <div id="welcome-modal" class="modal">
+        <div class="modal-content welcome-letter">            
+            <p class="letter-greeting">Dear Monitor,</p>
+            <p>We want to thank you for your service as an official 'The Golden Scroll' monitor. While the participants are on a learning mission to solve mysteries and find the treasure, your mission as a monitor is to make that learning possible. We know that with your help, participants will be able to feel the Spirit and have fun as they learn the sacred truths contained in the scriptures.</p>
+            <p>The information provided for each mission reflects the content on the participant’s platform, along with instructions to properly set up your station before their arrival. A script is also included—not to be memorized, but to serve as a guide for leading your activity.</p>
+            <p>This is accompanied by the scriptures for your assigned story and tips to enhance the experience. You are expected to adapt this information to your participants' needs while staying focused on narrating the story according to the scriptures in a simple, easy-to-understand, and engaging way.</p>
+            
+            <div class="letter-footer">
+                <p class="letter-closing">Good Luck!</p>
+                <p class="letter-signature">- The Golden Scroll</p>
+            </div>
+            
+            <button id="start-monitoring-btn">START MONITORING</button>
+        </div>
+    </div>
+
+    <div id="footer-container"></div>
+
+    <script src="scripts/layout.js"></script>
+    <script type="module" src="scripts/monitorMenu.mjs"></script>
+</body>
+</html>
