@@ -71,8 +71,8 @@ main {
     transform: translate(4px, 4px);
 }
 
-/* Input */
-#team-name {
+/* Input General */
+#team-name, #monitor-name {
     width: 70%;
     border: none;
     border-bottom: 2px solid black; 
@@ -81,9 +81,10 @@ main {
     font-weight: bold;
     text-align: center;
     outline: none;
+    margin-bottom: 10px;
 }
 
-#team-name::placeholder {
+#team-name::placeholder, #monitor-name::placeholder {
     color: rgba(0, 0, 0, 0.7);
     opacity: 1;
 }
@@ -156,12 +157,13 @@ main {
     gap: 15px;
 }
 
-/* Input */
+/* Input Fields */
 .input-field {
     display: flex;
     flex-direction: column;
     align-items: flex-start;
     gap: 5px;
+    width: 100%;
 }
 
 .input-field label {
@@ -185,6 +187,17 @@ main {
 .input-field input:focus {
     background-color: rgb(246, 209, 246);
     box-shadow: 2px 2px 0px black;
+}
+
+/* Estilo específico para el input de monitor cuando está dentro de profile-data */
+#monitor-name {
+    width: 100%;
+    background-color: #f0f0f0;
+    text-align: left; /* Para que coincida con el estilo de los campos de texto del niño */
+    padding: 10px;
+    border: 2px solid black;
+    border-radius: 10px;
+    margin-bottom: 0;
 }
 
 /* Register Button */
@@ -216,7 +229,7 @@ main {
     display: flex;
     flex-direction: column; 
     align-items: center;
-    gap: -10px; /* Espacio reducido entre botones */
+    gap: -10px; 
     margin: 10px 0;
 }
 
@@ -232,7 +245,7 @@ main {
 .svg-container {
     position: relative;
     width: 380px; 
-    height: 260px; /* Altura reducida para acercar los elementos verticalmente */
+    height: 260px; 
     display: flex;
     justify-content: center;
     align-items: center;
@@ -270,7 +283,7 @@ main {
     transition: all 0.2s ease;
     z-index: 2;
     filter: drop-shadow(6px 6px 0px black);
-    margin-top: 10px; /* Pegado al arco del texto */
+    margin-top: 10px; 
 }
 
 .player-icon {
@@ -337,7 +350,7 @@ main {
 #monitor-password {
     width: 100%;
     padding: 12px;
-    border: 3px solid black;
+    border: 2px solid black;
     border-radius: 12px;
     font-family: var(--font-body);
     background-color: #f0f0f0;

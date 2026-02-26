@@ -10,6 +10,7 @@ const loader = document.getElementById('loader');
 
 // Inputs
 const teamInput = document.getElementById('team-name');
+const monitorNameInput = document.getElementById('monitor-name'); // NUEVO
 const monitorPassInput = document.getElementById('monitor-password');
 const childInput = document.getElementById('chname');
 const companionInput = document.getElementById('coname');
@@ -37,7 +38,6 @@ function loadAvatar(url) {
 }
 
 // --- 1. SELECTOR DE ROLES ---
-// Al elegir un rol, usamos la clase .hidden para que los botones superiores desaparezcan
 document.getElementById('role-player').addEventListener('click', () => {
     roleSelector.classList.add('hidden'); 
     registrationFlow.style.display = "flex";
@@ -61,33 +61,54 @@ document.getElementById('role-monitor').addEventListener('click', () => {
     btnUnlockMonitor.style.display = "block";
     btnStartMonitoring.style.display = "none";
     monitorPassInput.readOnly = false;
+    monitorNameInput.readOnly = false; // NUEVO
     monitorPassInput.value = "";
+    monitorNameInput.value = ""; // NUEVO
 });
 
 // --- 2. LÓGICA DE MONITOR ---
 btnUnlockMonitor.addEventListener('click', () => {
     const passValue = monitorPassInput.value.trim();
+    const monitorName = monitorNameInput.value.trim(); // NUEVO
+
+    // Validamos que haya puesto su nombre antes de la clave
+    if (!monitorName) {
+        alert("Por favor, ingresa tu nombre antes de continuar.");
+        return;
+    }
     
     if (passValue === "EMAUS") {
-        currentAvatarUrl = generateAvatar("EMAUS"); 
+        // Generamos un avatar basado en su nombre personal para que sea único
+        currentAvatarUrl = generateAvatar(monitorName); 
         loadAvatar(currentAvatarUrl);
         
         btnUnlockMonitor.style.display = "none";
         btnStartMonitoring.style.display = "block";
         monitorPassInput.readOnly = true;
+        monitorNameInput.readOnly = true; // Bloqueamos el nombre tras validar
     } else {
         alert("Contraseña incorrecta para el perfil de Monitor.");
     }
 });
 
 btnStartMonitoring.addEventListener('click', async () => {
+    const monitorName = monitorNameInput.value.trim();
+
     if (!currentAvatarUrl) {
-        currentAvatarUrl = generateAvatar("EMAUS");
+        currentAvatarUrl = generateAvatar(monitorName || "Staff");
     }
 
     try {
-        await registerTeam("MONITORES", currentAvatarUrl, "Staff", "N/A", "monitor");
-        window.location.href = "index.html";
+        // Registramos al monitor. 
+        // Pasamos monitorName como el "childName" para que se guarde su identidad.
+        // El teamName sigue siendo "MONITORES" para agruparlos a todos.
+        await registerTeam("MONITORES", currentAvatarUrl, monitorName, "N/A", "monitor");
+        
+        // Guardamos su nombre en localStorage para usarlo en el Hub y en el filtro de mensajes
+        localStorage.setItem('current_monitor_name', monitorName);
+        
+        // Redirección al Hub de Monitores directamente como planeamos
+        window.location.href = "monitor-index.html"; 
     } catch (error) {
         console.error("Error al registrar monitor:", error);
     }

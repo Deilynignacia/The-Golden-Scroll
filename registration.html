@@ -69,17 +69,22 @@
             </div>
         </div>
 
-        <div id="monitor-ui" style="width: 100%; display: none; flex-direction: column; align-items: center;">
+<div id="monitor-ui" style="width: 100%; display: none; flex-direction: column; align-items: center;">
             <div class="profile-data">
+                <div class="input-field">
+                    <label for="monitor-name">TU NOMBRE:</label>
+                    <input type="text" id="monitor-name" placeholder="Ej: Juan López">
+                </div>
+
                 <div class="input-field">
                     <label for="monitor-password">CONTRASEÑA:</label>
                     <input type="password" id="monitor-password" placeholder="Escribe aquí">
                 </div>
+
                 <button type="button" id="btn-unlock-monitor">DESBLOQUEAR PERFIL</button>
                 <button type="button" id="btn-start-monitoring" style="display: none;">IR AL INICIO</button>
             </div>
         </div>
-    </div>
 </main>
 
     <script type="module" src="scripts/registration.mjs"></script>
