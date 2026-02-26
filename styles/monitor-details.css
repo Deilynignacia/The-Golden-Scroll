@@ -1,34 +1,39 @@
+/* --- MONITOR DETAILS - MOBILE FIRST --- */
+
 #mentor-detail {
-    padding: 20px;
-    max-width: 800px;
+    padding: 15px;
+    max-width: 100%;
     margin: 0 auto;
-    padding-bottom: 120px;
+    padding-bottom: 120px; /* Espacio para el footer */
 }
 
-/* Mission Title and Icon */
+/* Mission Header */
 .mission-header {
     display: flex;
+    flex-direction: column; /* Apilado en móvil */
     align-items: center;
-    gap: 20px;
-    margin-bottom: 30px;
+    text-align: center;
+    gap: 15px;
+    margin-bottom: 25px;
 }
 
 #mission-icon {
-    width: 90px;
-    height: 90px;
+    width: 80px;
+    height: 80px;
     border-radius: 50%; 
     border: 3px solid #000;
     object-fit: cover;
-    display: block;
     background-color: white;
+    box-shadow: 4px 4px 0px black;
 }
 
 #mission-title {
     font-family: var(--font-titles);
-    font-size: 1.5rem;
+    font-size: 1.3rem;
     margin: 0;
     text-transform: uppercase;
     color: #1c1c1c;
+    line-height: 1.2;
 }
 
 #mission-subtitle {
@@ -37,26 +42,22 @@
     font-weight: bold;
     margin: 5px 0 0;
     opacity: 0.8;
+    font-size: 0.9rem;
 }
 
+/* Mentor Sections Generic */
 .mentor-section {
-    margin-bottom: 25px;
+    margin-bottom: 20px;
     background: white;
-    padding: 1.5rem;
+    padding: 1.2rem;
     border-radius: 15px;
-    border: 1px solid rgba(0, 0, 0, 0.05);
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
-    transition: transform 0.2s ease;
-}
-
-.mentor-section:hover {
-    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.12);
-    transform: translateY(-2px);
+    border: 2px solid black; /* Reforzando Neobrutalismo */
+    box-shadow: 4px 4px 0px rgba(0, 0, 0, 0.1);
 }
 
 .mentor-section h2 {
     font-family: var(--font-titles);
-    font-size: 1.2rem;
+    font-size: 1.1rem;
     color: var(--color-support);
     margin-top: 0;
     margin-bottom: 15px;
@@ -71,30 +72,34 @@
 }
 
 #prep-materials li {
-    margin-bottom: 5px;
+    margin-bottom: 8px;
     font-family: var(--font-body);
-    color: #444;
+    color: #333;
+    font-size: 0.95rem;
 }
 
 #prep-setup {
     background: #ffdf86;
-    padding: 15px;
+    padding: 12px;
     border-radius: 10px;
     font-style: italic;
     font-family: var(--font-body);
+    font-size: 0.9rem;
+    border: 1px solid black;
 }
 
-/* Script */
+/* Script Box */
 .script-box {
     background-color: #9cf3e7;
-    padding: 20px;
+    padding: 15px;
     border-radius: 10px;
+    border: 2px solid black;
 }
 
 #script-intro {
     font-family: var(--font-body);
-    font-size: 1.05rem;
-    line-height: 1.7;
+    font-size: 1rem;
+    line-height: 1.6;
     margin-bottom: 15px;
     color: #1c1c1c;
 }
@@ -103,12 +108,13 @@
     display: inline-block;
     background: #1c1c1c;
     color: white;
-    padding: 10px 20px;
+    padding: 8px 15px;
     border-radius: 20px;
     font-family: var(--font-subtitles);
-    font-size: 0.9rem;
+    font-size: 0.85rem;
 }
 
+/* Sections without Box Styles (Secret & Teams) */
 .mentor-section.secret, 
 .mentor-section.teams {
     background: transparent;
@@ -118,23 +124,19 @@
     width: 100%;
 }
 
-.mentor-section.secret:hover,
-.mentor-section.teams:hover {
-    transform: none;
-}
-
-/* Secret Letter */
+/* Secret Letter Badge */
 .letter-badge {
     display: flex;
+    flex-direction: column; /* Texto arriba, letra abajo en móvil */
     align-items: center;
     justify-content: center;
-    gap: 20px;
+    gap: 10px;
     background-color: #1c1c1c;
     color: #ffffff;
     padding: 20px;
     border-radius: 20px;
     border: 4px solid #000;
-    box-shadow: 8px 8px 0px rgba(0,0,0,0.2);
+    box-shadow: 6px 6px 0px rgba(0,0,0,0.3);
     margin: 10px 0 30px;
     width: 100%;
     box-sizing: border-box;
@@ -142,61 +144,128 @@
 
 #secret-letter {
     font-family: 'Fredoka', sans-serif;
-    font-size: 4rem; 
+    font-size: 3.5rem; 
     color: #eed22b !important; 
     line-height: 1;
     text-shadow: 2px 2px 0px #000;
 }
 
-/* Teams List */
+/* Teams List & Cards */
 #teams-list-container {
     display: flex;
     flex-direction: column;
-    gap: 15px;
+    gap: 12px;
 }
 
 .team-unlock-card {
     display: flex;
-    justify-content: space-between;
+    flex-direction: column; /* Apilado en móvil */
+    gap: 10px;
     align-items: center;
-    padding: 15px 25px;
-    background: #ffffff;
-    border: 3px solid #000;
-    border-radius: 15px;
-    box-shadow: 6px 6px 0px #000;
-    transition: all 0.2s ease;
-    box-sizing: border-box;
+    background: white;
+    border: 3px solid black;
+    padding: 15px;
+    box-shadow: 4px 4px 0px black;
+    transition: 0.2s;
 }
 
-.team-unlock-card span {
-    font-family: var(--font-titles);
-    font-size: 1.1rem;
+.team-info {
+    display: flex;
+    align-items: center;
+    gap: 10px;
     font-weight: bold;
-    color: #1c1c1c;
+    font-family: var(--font-body);
 }
 
-/* Action Buttons */
-.team-unlock-card button {
-    cursor: pointer;
-    background-color: #ffdf86;
-    color: #000;
-    border: 3px solid #000;
+.team-unlock-card.completed {
+    background: #d4edda;
+    border-color: #28a745;
+}
+
+/* Buttons */
+.btn-unlock {
+    background: #ffde59;
+    border: 2px solid black;
+    font-family: var(--font-titles);
+    font-weight: bold;
     padding: 10px 20px;
-    border-radius: 10px;
-    font-family: var(--font-titles);
-    font-weight: bold;
-    text-transform: uppercase;
-    box-shadow: 4px 4px 0px #000;
-    transition: all 0.1s;
+    width: 100%; /* Botón ancho en móvil */
+    cursor: pointer;
+    box-shadow: 3px 3px 0px black;
 }
 
-.team-unlock-card button:hover {
-    background-color: #ffe8a3;
-    transform: translate(-2px, -2px);
-    box-shadow: 6px 6px 0px #000;
-}
-
-.team-unlock-card button:active {
+.btn-unlock:active {
     transform: translate(2px, 2px);
-    box-shadow: 0px 0px 0px #000;
+    box-shadow: none;
+}
+
+.btn-done {
+    background: #28a745;
+    color: white;
+    border: 2px solid black;
+    padding: 10px 20px;
+    width: 100%;
+    font-weight: bold;
+    cursor: default;
+}
+
+/* --- MEDIA QUERIES (DESKTOP) --- */
+
+@media (min-width: 768px) {
+    #mentor-detail {
+        padding: 30px;
+        max-width: 800px;
+    }
+
+    .mission-header {
+        flex-direction: row;
+        text-align: left;
+        gap: 30px;
+    }
+
+    #mission-icon {
+        width: 100px;
+        height: 100px;
+    }
+
+    #mission-title {
+        font-size: 1.8rem;
+    }
+
+    .letter-badge {
+        flex-direction: row; /* Horizontal en desktop */
+        gap: 40px;
+    }
+
+    .team-unlock-card {
+        flex-direction: row; /* Horizontal en desktop */
+        justify-content: space-between;
+        padding: 12px 20px;
+    }
+
+    .btn-unlock, .btn-done {
+        width: auto; /* Botón tamaño normal en desktop */
+    }
+
+    .mentor-section:hover {
+        transform: translateY(-3px);
+        box-shadow: 6px 6px 0px rgba(0, 0, 0, 0.15);
+    }
+}
+
+.mission-btn.is-completed {
+    background-color: #28a745 !important; /* Un verde sólido */
+    color: white !important;
+    border: 3px solid black;
+    box-shadow: 4px 4px 0px black;
+    font-weight: bold;
+    position: relative;
+}
+
+/* Si quieres que el check sea más grande o tenga otro color */
+.mission-btn.is-completed span {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
 }

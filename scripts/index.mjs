@@ -1,15 +1,45 @@
-document.addEventListener('layoutReady', () => {
-    // Team Data
-    const teamData = JSON.parse(localStorage.getItem("goldenScroll_team"));
+import { initializeApp } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-app.js";
+import { getFirestore, doc, getDoc } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-firestore.js";
 
-    // Progress Tracker
+// Tu config de Firebase (la misma que usas en el monitor)
+const firebaseConfig = { 
+    apiKey: "AIzaSyAon2En6oCIlGNhJuVDC7PYbFGzPy6bW5c",
+    authDomain: "the-golden-scroll.firebaseapp.com",
+    projectId: "the-golden-scroll",
+    storageBucket: "the-golden-scroll.firebasestorage.app",
+    messagingSenderId: "162425132870",
+    appId: "1:162425132870:web:0f8e982e27cae87d1eb747",
+    measurementId: "G-TMKSXWGNL9"
+ }; 
+const app = initializeApp(firebaseConfig);
+const db = getFirestore(app);
+
+document.addEventListener('layoutReady', async () => {
+    let teamData = JSON.parse(localStorage.getItem("goldenScroll_team"));
+
+    // --- NUEVO: Sincronización con Firebase ---
+    if (teamData && teamData.name) {
+        try {
+            const docRef = doc(db, "teams", teamData.name);
+            const docSnap = await getDoc(docRef);
+            if (docSnap.exists()) {
+                teamData = docSnap.data();
+                localStorage.setItem("goldenScroll_team", JSON.stringify(teamData));
+            }
+        } catch (e) {
+            console.log("Offline mode: using local data");
+        }
+    }
+
+    // --- Progress Tracker (Solo misiones COMPLETADAS) ---
     const progressFill = document.querySelector('.progress-fill');
     if (progressFill) {
-        let percentage = 10;
+        let percentage = 0; // Empezamos en 0 si no hay nada
         if (teamData && teamData.progress) {
-            const total = 10; 
-            const unlocked = Object.values(teamData.progress).filter(s => s !== "locked").length;
-            percentage = (unlocked / total) * 100;
+            const totalMissions = 10; 
+            // CAMBIO: Solo contamos las que dicen "completed"
+            const completedCount = Object.values(teamData.progress).filter(s => s === "completed").length;
+            percentage = (completedCount / totalMissions) * 100;
         }
         progressFill.style.width = `${percentage}%`;
     }

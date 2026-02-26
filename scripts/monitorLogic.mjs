@@ -1,6 +1,7 @@
 import { missionData } from './monitorMissionData.mjs'; 
 import { initializeApp } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-app.js";
-import { getFirestore, collection, getDocs } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-firestore.js";
+// Añadimos doc y updateDoc aquí abajo
+import { getFirestore, collection, getDocs, doc, updateDoc } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-firestore.js";
 
 const firebaseConfig = {
     apiKey: "AIzaSyAon2En6oCIlGNhJuVDC7PYbFGzPy6bW5c",
@@ -43,7 +44,6 @@ function renderMissionDetail(mission) {
     document.getElementById('secret-letter').innerText = mission.secretLetter || "?";
 }
 
-// Buttons (Saving functionality and lock unlocked to be added)
 async function loadTeamsForMission(missionId) {
     const container = document.getElementById('teams-list-container');
     const querySnapshot = await getDocs(collection(db, "teams"));
@@ -51,18 +51,52 @@ async function loadTeamsForMission(missionId) {
 
     querySnapshot.forEach((teamDoc) => {
         const team = teamDoc.data();
+        const teamId = teamDoc.id; // Necesitamos el ID del documento para actualizarlo
         
+        // Verificamos si esta misión ya está completada por el equipo
+        // Asumiremos que en Firebase los equipos tienen un array llamado 'completedMissions'
+        const isCompleted = team.completedMissions && team.completedMissions.includes(missionId);
+
         const card = document.createElement('div');
-        card.className = `team-unlock-card`;
-        card.innerHTML = `<span>${team.name}</span>`;
+        card.className = `team-unlock-card ${isCompleted ? 'completed' : ''}`;
+        card.innerHTML = `
+            <div class="team-info">
+                <img src="${team.avatar}" alt="avatar" style="width:40px; height:40px;">
+                <span>${team.name}</span>
+            </div>
+        `;
 
         const btn = document.createElement('button');
-        btn.innerText = 'MARK AS DONE';
-        btn.style.cursor = "pointer";
+        btn.innerText = isCompleted ? 'COMPLETED' : 'MARK AS DONE';
+        btn.disabled = isCompleted;
+        btn.className = isCompleted ? 'btn-done' : 'btn-unlock';
         
-        // Until functionality is added
-        btn.addEventListener('click', () => {
-            alert("Leaderboard system in progress");
+        btn.addEventListener('click', async () => {
+            btn.innerText = "Saving...";
+            btn.disabled = true;
+
+            try {
+                const teamRef = doc(db, "teams", teamId);
+                
+                // Obtenemos la lista actual o creamos una vacía
+                let currentMissions = team.completedMissions || [];
+                
+                if (!currentMissions.includes(missionId)) {
+                    currentMissions.push(missionId);
+                    
+                    await updateDoc(teamRef, {
+                        completedMissions: currentMissions,
+                        progress: currentMissions.length * 10 // Ejemplo: 10% por misión
+                    });
+
+                    btn.innerText = "DONE!";
+                    card.classList.add('completed');
+                }
+            } catch (error) {
+                console.error("Error updating progress:", error);
+                btn.innerText = "Error";
+                btn.disabled = false;
+            }
         });
 
         card.appendChild(btn);

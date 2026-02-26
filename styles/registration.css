@@ -1,6 +1,6 @@
 * {
     box-sizing: border-box; 
-    margin: 0;
+    margin: 0; 
     padding: 0;
 }
 
@@ -38,6 +38,7 @@ main {
     border: 2px solid black;
     box-shadow: 4px 4px 0px 0px rgba(0, 0, 0, 1);
     transition: all 0.1s;
+    margin: 20px 0; 
 }
 
 .cat-avatar {
@@ -62,6 +63,7 @@ main {
     border: 2px solid black;
     box-shadow: 4px 4px 0px 0px rgba(0, 0, 0, 1);
     transition: all 0.1s;
+    margin: 15px 0;
 }
 
 #btn-meet-cat:active {
@@ -140,7 +142,7 @@ main {
 .profile-data {
     width: 85%;
     max-width: 340px;
-    background-color:  rgb(220, 183, 220);
+    background-color: rgb(220, 183, 220);
     border: 3px solid black;
     border-radius: 20px;
     padding: 20px;
@@ -175,7 +177,7 @@ main {
     border: 2px solid black;
     border-radius: 10px;
     font-family: var(--font-body);
-    background-color:  rgb(246, 209, 246);
+    background-color: rgb(246, 209, 246);
     outline: none;
     transition: all 0.2s;
 }
@@ -206,4 +208,166 @@ main {
 #btn-final-register:active {
     box-shadow: 0px 0px 0px black;
     transform: translate(4px, 4px);
+}
+
+/* --- SECCIÓN SELECTOR DE ROLES --- */
+
+.role-selector {
+    display: flex;
+    flex-direction: column; 
+    align-items: center;
+    gap: -10px; /* Espacio reducido entre botones */
+    margin: 10px 0;
+}
+
+.role-btn-circle {
+    background: none;
+    border: none;
+    cursor: pointer;
+    position: relative;
+    padding: 0;
+    outline: none;
+}
+
+.svg-container {
+    position: relative;
+    width: 380px; 
+    height: 260px; /* Altura reducida para acercar los elementos verticalmente */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: visible;
+}
+
+.curved-text-svg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 3;
+}
+
+.curved-text-svg text {
+    font-family: var(--font-titles);
+    font-weight: bold;
+    font-size: 23px; 
+    fill: white;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    filter: drop-shadow(4px 4px 0px black); 
+}
+
+.role-icon {
+    width: 300px; 
+    height: 300px;
+    background-color: transparent; 
+    border: none;
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    transition: all 0.2s ease;
+    z-index: 2;
+    filter: drop-shadow(6px 6px 0px black);
+    margin-top: 10px; /* Pegado al arco del texto */
+}
+
+.player-icon {
+    background-image: url('../images/participante.png'); 
+}
+
+.monitor-icon {
+    background-image: url('../images/monitoor.png'); 
+}
+
+.role-btn-circle:hover .role-icon {
+    transform: scale(1.08) rotate(3deg);
+    filter: drop-shadow(10px 10px 0px black);
+}
+
+.role-btn-circle:active .role-icon {
+    transform: scale(0.95);
+    filter: drop-shadow(2px 2px 0px black);
+}
+
+/* --- BOTONES DE MONITOR --- */
+#btn-unlock-monitor {
+    width: 100%;
+    background-color: #5d5dff;
+    color: white;
+    font-family: var(--font-titles);
+    font-weight: bold;
+    font-size: 1rem;
+    padding: 15px;
+    border: 3px solid black;
+    border-radius: 15px;
+    cursor: pointer;
+    box-shadow: 4px 4px 0px black;
+    transition: all 0.1s;
+    margin-top: 10px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+#btn-unlock-monitor:hover {
+    background-color: #4848d6;
+    transform: translateY(-2px);
+    box-shadow: 6px 6px 0px black;
+}
+
+#btn-start-monitoring {
+    width: 100%;
+    background-color: #2ecc71;
+    color: black;
+    font-family: var(--font-titles);
+    font-weight: bold;
+    font-size: 1.1rem;
+    padding: 18px;
+    border: 3px solid black;
+    border-radius: 15px;
+    cursor: pointer;
+    box-shadow: 4px 4px 0px black;
+    transition: all 0.1s;
+    margin-top: 10px;
+    text-transform: uppercase;
+    display: none;
+}
+
+#monitor-password {
+    width: 100%;
+    padding: 12px;
+    border: 3px solid black;
+    border-radius: 12px;
+    font-family: var(--font-body);
+    background-color: #f0f0f0;
+    font-size: 1.2rem;
+    text-align: center;
+    letter-spacing: 5px;
+    outline: none;
+}
+
+/* --- OTROS --- */
+.hidden {
+    display: none !important;
+}
+
+.loader {
+    border: 5px solid #f3f3f3;
+    border-top: 5px solid var(--color-primary, #ffcc00);
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    animation: spin 1s linear infinite;
+    position: absolute;
+    display: none; 
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+.avatar-container {
+    position: relative;
 }
