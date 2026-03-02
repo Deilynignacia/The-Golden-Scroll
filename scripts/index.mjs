@@ -51,7 +51,7 @@ document.addEventListener('layoutReady', async () => {
     }
 
     // Menu
-    const buttons = { 'map': 'map.html', 'ranking': 'ranking.html', 'notes': 'notes.html', 'bible': 'bible.html' };
+    const buttons = { 'map': 'map.html', 'ranking': 'ranking.html', 'normas': 'normas.html', 'bible': 'bible.html' };
     Object.entries(buttons).forEach(([id, url]) => {
         const btn = document.getElementById(id);
         if (btn) btn.addEventListener('click', () => { window.location.href = url; });

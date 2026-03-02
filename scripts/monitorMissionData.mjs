@@ -2,181 +2,181 @@ export const missionData = {
     missions: [
         {
             id: "1",
-            title: "Adan and Eves's family",
-            subtitle: "Conflict resolution",
-            childrenPlatform: "Cain and Abel could not solve their problems and faced the consequences. To complete this challenge, go to one of the 'Forest Friends' tables, a game about resolving conflicts.",
+            title: "La familia de Adán y Eva",
+            subtitle: "Resolución de conflictos",
+            childrenPlatform: "Caín y Abel no pudieron resolver sus problemas y enfrentaron las consecuencias. Para completar este desafío, dirígete a una de las mesas de 'Amigos del Bosque', un juego sobre cómo resolver conflictos.",
             icon: "images/icons/1.png",
-            secretLetter: "I",
+            secretLetter: "U", // J-E-S-U-C-R-I-S-T-O
             prepGuide: {
-                materials: ["Three 'Forest Friends' board game copies", "Tockens", "Dice", "Regular game cards", "Clue cards"],
-                setup: "Set up three tables with the boards, dice, and tokens. Have the regular cards and the clue cards shuffled."
+                materials: ["Tres copias del juego de mesa 'Amigos del Bosque'", "Fichas", "Dados", "Cartas de juego normales", "Cartas de pistas"],
+                setup: "Prepara tres mesas con los tableros, dados y fichas. Ten las cartas normales y las de pistas barajadas."
             },
             monitorScript: {
-                intro: "Welcome to the very beginning! After leaving Eden, Adam and Eve's family grew, but they soon learned that living together requires love and patience. Two of their children, Cain and Abel, had a big conflict because one let anger win. Both brought offerings to God. God accepted Abel’s with favor, but not Cain’s (because Cain's heart wasn't right). Cain got so jealous and angry that he killed his brother. Today, you will learn about conflict resolution. Head to one of the 'Forest Friends' tables, pick a token, and move across the board. Resolve conflicts using one of the four available game modes: asking an adult for help, creative solutions, speaking and listening, negotiating, or taking a timeout, depending on the cards in your deck.",
-                scripture: "Genesis 4:1-12",
-                tips: "Ask them: 'How do you handle being angry at home?' Emphasize that resolving problems makes us stronger and helps us grow as a person."
+                intro: "¡Bienvenidos al mismísimo comienzo! Después de salir del Edén, la familia de Adán y Eva creció, pero pronto aprendieron que vivir juntos requiere amor y paciencia. Dos de sus hijos, Caín y Abel, tuvieron un gran conflicto porque uno dejó que la ira ganara. Ambos llevaron ofrendas a Dios. Dios aceptó la de Abel con agrado, pero no la de Caín (porque el corazón de Caín no era recto). Caín se puso tan celoso y enojado que mató a su hermano. Hoy aprenderán sobre la resolución de conflictos. Diríjanse a una de las mesas de 'Amigos del Bosque', elijan una ficha y muévanse por el tablero. Resuelvan los conflictos usando uno de los cuatro modos disponibles: pedir ayuda a un adulto, soluciones creativas, hablar y escuchar, negociar o tomarse un tiempo fuera, dependiendo de las cartas en su mazo.",
+                scripture: "Génesis 4:1-12",
+                tips: "Pregúntales: '¿Cómo manejas el enojo en casa?'. Enfatiza que resolver problemas nos hace más fuertes y nos ayuda a crecer como personas."
             }
         },
 
         {
             id: "2",
-            title: "Noah's Ark",
-            subtitle: "Memory Game",
-            childrenPlatform: "Noah put a pair of every animal on the ark. Play the memory game by matching the animal pairs. When you find a pair, take it to the ark on the monitor’s table.",
+            title: "El Arca de Noé",
+            subtitle: "Juego de Memoria",
+            childrenPlatform: "Noé puso una pareja de cada animal en el arca. Juega al juego de memoria emparejando los animales. Cuando encuentres una pareja, llévala al arca que está en la mesa del monitor.",
             icon: "images/icons/2.png",
-            secretLetter: "R",
+            secretLetter: "S",
             prepGuide: {
-                materials: ["Animal Memory cards", "Clue cards (as many as teams are)"],
-                setup: "Shuffle the animal cards and the clue cards together, then place them face down on the floor in a grid."
+                materials: ["Cartas de memoria de animales", "Cartas de pistas (tantas como equipos haya)"],
+                setup: "Baraja las cartas de animales y las de pistas juntas, luego colócalas boca abajo en el suelo formando una cuadrícula."
             },
             monitorScript: {
-                intro: "In the times of Noah, the world had become full of violence and sadness. Noah was the only one who still walked with God. God told him to build an Ark. because a flood was coming. Noah worked on it for 120 years! He saved his family and two of every animal. Now, it’s your turn to help! On the floor, you will find pairs of animals face down. Play the memory game to find the matches. Once you find a pair, bring it quickly to the Ark on my table!",
-                scripture: "Genesis 6 and 7",
-                tips: "Play jungle or water sounds in the background to set the mood."
+                intro: "En los tiempos de Noé, el mundo se había llenado de violencia y tristeza. Noé era el único que aún caminaba con Dios. Dios le dijo que construyera un Arca porque venía un diluvio. ¡Noé trabajó en ella durante 120 años! Salvó a su familia y a dos de cada animal. ¡Ahora es su turno de ayudar! En el suelo encontrarán parejas de animales boca abajo. Jueguen al memorice para encontrar las parejas. ¡Una vez que encuentren una, tráiganla rápido al Arca que está en mi mesa!",
+                scripture: "Génesis 6 y 7",
+                tips: "Pon sonidos de selva o agua de fondo para crear ambiente."
             }
         },
 
         {
             id: "3",
-            title: "Babel Tower",
-            subtitle:"Languages bricks",
-            childrenPlatform: "The Lord confused the languages of the people in Babel as a punishment for their pride, but thanks to that, many new languages were born! Using the Google Lens translator, look for the cup tower in the language assigned by the monitor. Use the cups to build the hidden sentence.",
+            title: "La Torre de Babel",
+            subtitle: "Ladrillos de Idiomas",
+            childrenPlatform: "El Señor confundió las lenguas de la gente en Babel como castigo por su orgullo, ¡pero gracias a eso nacieron muchos idiomas nuevos! Usando el traductor de Google Lens, busca la torre de vasos en el idioma asignado por el monitor. Usa los vasos para construir la frase oculta.",
             icon: "images/icons/3.png",
-            secretLetter: "E",
+            secretLetter: "J",
             prepGuide: {
-                materials: ["Disposable cups", "Paper slips with the words from the phrase: 'Look now toward heaven, and count the stars' in as many languages as teams are", "Paper slips with languages tags"],
-                setup: "Tape a slip to each cup. Then, sorting them by language, set up tables with cup towers (one tower per language, one table per tower). Tape the language tag slips to the corresponding tables."
+                materials: ["Vasos desechables", "Tiras de papel con las palabras de la frase: 'Mira ahora los cielos, y cuenta las estrellas' en tantos idiomas como equipos haya", "Etiquetas con los nombres de los idiomas"],
+                setup: "Pega una tira de papel en cada vaso. Luego, sepáralos por idioma y monta torres de vasos en las mesas (una torre por idioma, una mesa por torre). Pega las etiquetas de los idiomas en las mesas correspondientes."
             },
             monitorScript: {
-                intro: "Imagine a world where everyone spoke the same language, that was the life of the people of Babel. After the flod, people moved to a plain called Shinar. Instead of spreading out to fill the earth as God asked, they stayed in one place. They used bricks and tar to build a tower to 'make a name for themselves'. They wanted to reach heaven on their own terms. To stop their pride, the Lord confused their tongues! Suddenly, no one understood each other, and many new languages were born. To complete this mission, you must use your phone's Google Lens. Choose a cup towers; each one is in a different languages! Translate them to find the hidden words.",
-                scripture: "Genesis 11:1-9",
-                tips: "If you know a different language, speak it to the participants as they enter the room, to show them how confusing it was. Remind them that true greatness comes from humility."
+                intro: "Imaginen un mundo donde todos hablaran el mismo idioma; así era la vida de la gente de Babel. Después del diluvio, las personas se mudaron a una llanura llamada Sinar. En lugar de esparcirse para llenar la tierra como Dios pidió, se quedaron en un solo lugar. Usaron ladrillos y asfalto para construir una torre para 'hacerse un nombre'. Querían llegar al cielo bajo sus propios términos. ¡Para detener su orgullo, el Señor confundió sus lenguas! De repente, nadie se entendía y nacieron muchos idiomas nuevos. Para completar esta misión, deben usar Google Lens en su teléfono. Elijan una torre de vasos; ¡cada una está en un idioma diferente! Tradúzcanlas para encontrar las palabras ocultas.",
+                scripture: "Génesis 11:1-9",
+                tips: "Si sabes otro idioma, háblales a los participantes en ese idioma cuando entren a la sala para mostrarles lo confuso que fue. Recuérdales que la verdadera grandeza viene de la humildad."
             },
         },
 
         {
             id: "4",
-            title: "Abrahamic Covenant",
-            subtitle: "All the Nations of the Earth",
-            childrenPlatform: "The Lord promised Abraham that all the nations of the earth would be blessed through his family. Find only one flag for each of the nations hidden around the room. Put them in numerical order using the numbers in the bottom right corner. Then, shine your phone’s flashlight through them.",
+            title: "El Convenio Abrahámico",
+            subtitle: "Todas las Naciones de la Tierra",
+            childrenPlatform: "El Señor le prometió a Abraham que todas las naciones de la tierra serían bendecidas a través de su familia. Encuentra solo una bandera de cada una de las naciones escondidas por la sala. Ordénalas numéricamente usando los números de la esquina inferior derecha. Luego, alumbra a través de ellas con la linterna de tu teléfono.",
             icon: "images/icons/4.png",
-            secretLetter: "C",
+            secretLetter: "E",
             prepGuide: {
-                materials: ["Word slips", "Flag slips", "Glue"],
-                setup: "Tape each word slip to the back of a flag slip so the word is hidden. Then, scatter these flagged slips around the room."
+                materials: ["Tiras con palabras", "Tiras con banderas", "Pegamento"],
+                setup: "Pega cada tira de palabra al reverso de una bandera para que la palabra quede oculta. Luego, esconde estas banderas por toda la sala."
             },
             monitorScript: {
-                intro: "Look up at the sky! Can you count the stars? That’s what God asked Abraham. He promised that his family would be as numerous as the stars and that all of the nations would be blessed on his behalf. You are part of that promise! Hidden around this room are flags from many nations. You must find only ONE flag for each nation. Once you have them, put them in numerical order and shine your flashlight through them.",
-                scripture: "Genesis 15:5 and 22:17-18",
-                tips: "If possible, run this activity in a dark room lit with flameless candles or string lights."
+                intro: "¡Miren al cielo! ¿Pueden contar las estrellas? Eso fue lo que Dios le preguntó a Abraham. Él prometió que su familia sería tan numerosa como las estrellas y que todas las naciones serían bendecidas por medio de él. ¡Ustedes son parte de esa promesa! Escondidas por esta sala hay banderas de muchas naciones. Deben encontrar solo UNA bandera de cada nación. Una vez que las tengan, ordénenlas numéricamente y miren a través de ellas usando la linterna de su celular.",
+                scripture: "Génesis 15:5 y 22:17-18",
+                tips: "Si es posible, realiza esta actividad en una sala oscura iluminada con velas LED o guirnaldas de luces."
             }
         },
 
         {
             id: "5",
-            title: "Joseph of Egypt",
-            subtitle: "A Story of twelve Brothers",
-            childrenPlatform: "Joseph faced many challenges throughout his life, but in the end, his strength to overcome them blessed his whole family and all of Egypt. Find the box with your name on it and use the materials inside to create a piece of art about the part of the story written on your box. Once your artwork is ready, show it to your monitor.",
+            title: "José de Egipto",
+            subtitle: "Una historia de doce hermanos",
+            childrenPlatform: "José enfrentó muchos desafíos a lo largo de su vida, pero al final, su fuerza para superarlos bendijo a toda su familia y a todo Egipto. Busca la caja con tu nombre y usa los materiales del interior para crear una obra de arte sobre la parte de la historia escrita en tu caja. Cuando tu obra esté lista, muéstrasela a tu monitor.",
             icon: "images/icons/5.png",
-            secretLetter: "X",
+            secretLetter: "I",
             prepGuide: {
-                materials: ["Boxes (as many as teams are)", "Art materials", "Canvas"],
-                setup: "Set up tables with boxes containing the necessary art supplies and canvases. Prepare as many tables as the number of parts you wish to divide the story of Joseph of Egypt into."
+                materials: ["Cajas (tantas como equipos haya)", "Materiales de arte", "Lienzos o cartulinas"],
+                setup: "Prepara mesas con las cajas que contienen los suministros de arte y los lienzos. Prepara tantas mesas como partes en las que desees dividir la historia de José de Egipto."
             },
             monitorScript: {
-                intro: "Joseph was the youngest of 12 brothers, and his father loved him deeply. He gifted them a beautiful coat of many colors, that make his brothers jealous and sold him as a slave. Even in an Egyptian prison, God never left him! Joseph eventually saved all of Egypt from hunger and all of his family. To honor his story, find the box with your team's name. Inside, you'll find a part of Joseph's life. Use the art materials to create a masterpiece that tells that part of the story!",
-                scripture: "Genesis 37 and 45",
-                tips: "Focus on resilience. Tell them: 'Joseph turned his trials into blessings'."            
+                intro: "José era el menor de 12 hermanos y su padre lo amaba profundamente. Le regaló una hermosa túnica de muchos colores, lo que hizo que sus hermanos tuvieran celos y lo vendieran como esclavo. ¡Incluso en una prisión egipcia, Dios nunca lo abandonó! José finalmente salvó a todo Egipto del hambre y a toda su familia. Para honrar su historia, busquen la caja con el nombre de su equipo. Dentro encontrarán una parte de la vida de José. ¡Usen los materiales de arte para crear una obra maestra que cuente esa parte de la historia!",
+                scripture: "Génesis 37 y 45",
+                tips: "Enfócate en la resiliencia. Diles: 'José convirtió sus pruebas en bendiciones'."            
             }
         },
 
         {
             id: "6",
-            title: "The Ten Plagues",
-            subtitle: "God Delivered His People",
-            childrenPlatform: "When Pharaoh refused to free the people of Israel, the Lord sent 10 plagues through Moses. After the tenth one, the people were finally set free! Solve the riddles about the plagues in your app (they are in order!).",
+            title: "Las Diez Plagas",
+            subtitle: "Dios liberó a Su pueblo",
+            childrenPlatform: "Cuando el Faraón se negó a liberar al pueblo de Israel, el Señor envió 10 plagas a través de Moses. Después de la décima, el pueblo fue finalmente libre! Resuelve los acertijos sobre las plagas en tu aplicación (¡están en orden!).",
             icon: "images/icons/6.png",
-            secretLetter: "E",
+            secretLetter: "O",
             prepGuide: {
-                materials: ["No materials required"],
-                setup: "Set up chairs for each participant."
+                materials: ["No se requieren materiales"],
+                setup: "Prepara sillas para cada participante."
             },
             monitorScript: {
-                intro: "For 400 years, Israel was enslaved in Egypt, and God heard their cries. He sent Moses to Pharaoh with a message: 'Let my people go!' Since Pharaoh was stubborn, 10 powerful signs occurred. Today, you are the detectives! Open your app and solve the riddles about the 10 plagues.",
-                scripture: "Exodus 7 to 12",
-                tips: "If possible, decorate the room with Egyptian scrolls or images that serve as clues about the plagues. Don't mention them out loud, but feel free to tape them to the walls. You can also play Egyptian ambient music."            
+                intro: "Durante 400 años, Israel estuvo esclavizado en Egipto y Dios escuchó sus lamentos. Envió a Moisés ante el Faraón con un mensaje: '¡Deja ir a mi pueblo!'. Como el Faraón era terco, ocurrieron 10 señales poderosas. ¡Hoy ustedes son los detectores! Abran su aplicación y resuelvan los acertijos sobre las 10 plagas.",
+                scripture: "Éxodo 7 al 12",
+                tips: "Si es posible, decora la sala con pergaminos egipcios o imágenes que sirvan como pistas sobre las plagas. No las menciones en voz alta, pero siéntete libre de pegarlas en las paredes. También puedes poner música ambiental egipcia."            
             }
         },
 
         {
             id: "7",
-            title: "The ten Commandments",
-            subtitle: "Stone Puzzle",
-            childrenPlatform: "The Lord gave Moses stone tablets on Mount Sinai with the 10 most important commandments for His people to follow. When Moses came down, he found the people worshiping a golden calf. Moses was very angry; he broke the tablets and destroyed the golden calf. The Lord then asked Moses to make new stone tablets and gave new promises to His people. Put the 10 Commandments puzzle together by sticking the pieces onto the plastic sheet.",
+            title: "Los Diez Mandamientos",
+            subtitle: "Rompecabezas de Piedra",
+            childrenPlatform: "El Señor le dio a Moisés tablas de piedra en el Monte Sinaí con los 10 mandamientos más importantes para que Su pueblo los siguiera. Cuando Moisés bajó, encontró al pueblo adorando a un becerro de oro. Moisés se enojó mucho; rompió las tablas y destruyó el becerro. El Señor le pidió entonces a Moisés que hiciera nuevas tablas de piedra y dio nuevas promesas a Su pueblo. Arma el rompecabezas de los 10 Mandamientos pegando las piezas en la lámina de plástico.",
             icon: "images/icons/7.png",
-            secretLetter: "E",
+            secretLetter: "C",
             prepGuide: {
-                materials: ["Sheet protectors", "Printed Ten Commandments stone puzzles (one puzzle for each team). The puzzles must be double-sided: the puzzle image on one side and a diamond image on the other (each diamond within the puzzle must be unique)."],
-                setup: "Set up a table with a sheet protector and the puzzle pieces for each team."
+                materials: ["Fundas protectoras de hojas", "Rompecabezas impresos de las tablas de los Mandamientos (uno por equipo). Deben ser por ambos lados: la imagen del rompecabezas por uno y una imagen de diamante por el otro (cada diamante debe ser único dentro del puzzle)."],
+                setup: "Prepara una mesa con una funda protectora y las piezas del rompecabezas para cada equipo."
             },
             monitorScript: {
-                intro: "On Mount Sinai, God spoke to the people with thunder and lightning. He gave Moses two stone tablets written with the 'finger of God'. There, he received the 10 Commandments that the pople of Israel must follow. When Moses came down from the mountain, he found the people worshiping a golden calf. He became furious, destroyed the calf, and smashed the stone tablets. The Lord then told Moses to craft a new set of tablets. Your mission is, just as Moses, to restore the law! Take the puzzle pieces and glue them to the the plastic sheet. Make sure the commandments are in the right place!",
-                scripture: "Exodus 20 and 34",
-                tips: "Explain that commandments are like a 'map' to help us stay safe in the desert of life."            
+                intro: "En el Monte Sinaí, Dios habló al pueblo con truenos y relámpagos. Le dio a Moisés dos tablas de piedra escritas con el 'dedo de Dios'. Allí recibió los 10 Mandamientos que el pueblo de Israel debía seguir. Cuando Moisés bajó de la montaña, encontró al pueblo adorando a un becerro de oro. Se puso furioso, destruyó al becerro y rompió las tablas de piedra. El Señor le dijo entonces a Moisés que fabricara un nuevo juego de tablas. ¡Su misión es, al igual que Moisés, restaurar la ley! Tomen las piezas del rompecabezas y péguenlas en la lámina de plástico. ¡Asegúrense de que los mandamientos estén en el lugar correcto!",
+                scripture: "Éxodo 20 y 34",
+                tips: "Explica que los mandamientos son como un 'mapa' para ayudarnos a mantenernos a salvo en el desierto de la vida."            
             }
         },
 
         {
             id: "8",
-            title: "The Twelve Precious Stones",
-            subtitle: "The Golden Breastplate",
-            childrenPlatform: "The people of Israel carried the Tabernacle with them as they traveled through the desert. The Tabernacle was like a 'moving temple' that went ahead of them, and they set it up every time they stopped. The High Priest wore a gold breastplate with 12 precious stones that represented the 12 tribes of Israel. Find one of the 12 bags with a colored stone inside, open it, and give it to your monitor!",
+            title: "Las Doce Piedras Preciosas",
+            subtitle: "El Pectoral de Oro",
+            childrenPlatform: "El pueblo de Israel llevaba el Tabernáculo con ellos mientras viajaban por el desierto. El Tabernáculo era como un 'templo móvil' que iba delante de ellos. El Sumo Sacerdote usaba un pectoral de oro con 12 piedras preciosas que representaban a las 12 tribus de Israel. ¡Busca una de las 12 bolsas con una piedra de color en su interior, ábrela y dásela a tu monitor!",
             icon: "images/icons/8.png",
-            secretLetter: "P",
+            secretLetter: "R",
             prepGuide: {
-                materials: ["12 small bags", "12 colored stones", "12 paper slips with the next mission clue", "A cardboard breastplate painted gold"],
-                setup: "Place one stone and one clue slip inside each small bag. Then, hide them by scattering them throughout the room."
+                materials: ["12 bolsas pequeñas", "12 piedras de colores", "12 tiras de papel con la pista de la siguiente misión", "Un pectoral de cartón pintado de dorado"],
+                setup: "Coloca una piedra y una tira con la pista dentro de cada bolsa. Luego, escóndelas repartiéndolas por toda la sala."
             },
             monitorScript: {
-                intro: "God gave specific instructions for the Tabernacle (the portable Temple). The High Priest (Aaron) wore a 'Breastplate of Judgment'. It had 4 rows of 3 stones (Sardius, Topaz, Carbuncle, Emerald, Sapphire, Diamond, Ligure, Agate, Amethyst, Beryl, Onyx, and Jasper). God literally carried His people on His heart! Around the room, there are 12 small bags hidden. You must find one bag with a colored stone inside. Once you find one, open the bag and give me the stone!",
-                scripture: "Exodus 28:15-21",
-                tips: "Show the participants your cardboard breastplate with pride. Tell them that, just like those stones, they are 'special treasures' to God."            
+                intro: "Dios dio instrucciones específicas para el Tabernáculo (el Templo portátil). El Sumo Sacerdote (Aarón) usaba un 'Pectoral del Juicio'. Tenía 4 filas de 3 piedras (Sardio, Topacio, Carbunclo, Esmeralda, Zafiro, Diamante, Jacinto, Ágata, Amatista, Berilo, Onice y Jaspe). ¡Dios literalmente llevaba a Su pueblo sobre Su corazón! Por la sala hay 12 bolsitas escondidas. Deben encontrar una bolsa con una piedra de color. ¡Una vez que la encuentren, abran la bolsa y denme la piedra!",
+                scripture: "Éxodo 28:15-21",
+                tips: "Muestra tu pectoral de cartón con orgullo. Diles que, al igual que esas piedras, ellos son 'tesoros especiales' para Dios."            
             }
         },
 
         {
             id: "9",
-            title: "The Census of Israel",
-            subtitle: "How many?",
-            childrenPlatform: "The book of Numbers is called that because it starts and ends with a census. Get a census sheet from your monitor and answer the questions using the information.",
+            title: "El Censo de Israel",
+            subtitle: "¿Cuántos son?",
+            childrenPlatform: "El libro de Números se llama así porque comienza y termina con un censo. Pide una hoja de censo a tu monitor y responde las preguntas usando la información.",
             icon: "images/icons/9.png",
-            secretLetter: "C",
+            secretLetter: "S",
             prepGuide: {
-                materials: ["Scrolls with the fictional census information table."],
-                setup: "Set up chairs for each participant."
+                materials: ["Pergaminos con la tabla de información del censo ficticio."],
+                setup: "Prepara sillas para cada participante."
             },
             monitorScript: {
-                intro: "The book of Numbers is called that because God wanted to know exactly who was on the journey, so it starts and ends with a census. Every person was important! I have the scrolls with the census information here. You must take a sheet and answer the questions in your app. You'll need to look closely at the numbers to make sure everyone is accounted for!",
-                scripture: "Numbers 1 and 26",
-                tips: "Make them feel like important census officers. 'Precision is key for the camp's organization!'"
+                intro: "El libro de Números se llama así porque Dios quería saber exactamente quiénes estaban en el viaje, así que comienza y termina con un censo. ¡Cada persona era importante! Tengo aquí los pergaminos con la información del censo. Deben tomar una hoja y responder las preguntas en su aplicación. ¡Tendrán que mirar los números con cuidado para asegurarse de contar a todos!",
+                scripture: "Números 1 y 26",
+                tips: "Hazlos sentir como importantes oficiales del censo. '¡La precisión es clave para la organización del campamento!'."
             }
         },
 
         {
             id: "10",
-            title: "The Path",
-            subtitle: "Don't forget where you came from.",
-            childrenPlatform: "Moses reminded his people of the whole journey they had traveled, the challenges they had faced, and how they overcame them. He reminded them of everything they had learned. Now, remember what you received in each of your missions!",
+            title: "El Camino",
+            subtitle: "No olvides de dónde vienes",
+            childrenPlatform: "Moisés le recordó a su pueblo todo el viaje que habían recorrido, los desafíos que enfrentaron y cómo los superaron. Les recordó todo lo que habían aprendido. ¡Ahora, recuerda lo que recibiste en cada una de tus misiones!",
             icon: "images/icons/10.png",
-            secretLetter: "N",
+            secretLetter: "T",
             prepGuide: {
-                materials: ["No materials required"],
-                setup: "Prepare a cozy and peaceful atmosphere to welcome the teams. You can set the mood with lights, blankets, cushions, etc."
+                materials: ["No se requieren materiales"],
+                setup: "Prepara una atmósfera acogedora y tranquila para recibir a los equipos. Puedes ambientar con luces tenues, mantas, cojines, etc."
             },
             monitorScript: {
-            intro: "We have reached the end of our journey with Moses. At the end of his life, he told the people: 'Do not forget what your eyes have seen. Now you have the opportunity to look at everything you have received in your missions.",
-            scripture: "Deuteronomy 4:9 and 8:2",
-            tips: "Lower your voice to create a peaceful, reflective atmosphere. This is the moment they realize all the secret letters form a word."
+            intro: "Hemos llegado al final de nuestro viaje con Moisés. Al final de su vida, le dijo al pueblo: 'No olvides las cosas que tus ojos han visto'. Ahora tienen la oportunidad de mirar todo lo que han recibido en sus misiones.",
+            scripture: "Deuteronomio 4:9 y 8:2",
+            tips: "Baja la voz para crear un ambiente pacífico y reflexivo. Este es el momento en que se dan cuenta de que todas las letras secretas forman una palabra."
             }
         }
     ]

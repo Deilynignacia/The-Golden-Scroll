@@ -1,49 +1,48 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>The Glden Scroll - Missions Menu - Monitor Hub</title>
+    <title>El Pergamino Dorado - Menú de Misiones - Panel de Monitores</title>
     <link rel="stylesheet" href="styles/main.css">
     <link rel="stylesheet" href="styles/monitor.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&family=Fredoka:wght@700&display=swap" rel="stylesheet">
-
 </head>
 <body>
     <div id="header-container"></div>
 
     <main>
-        <h1>MONITORS</h1>
+        <h1>MONITORES</h1>
         
         <div class="open-message-container">
-            <button id="open-message-btn">✉️ A message from the team</button>
+            <button id="open-message-btn">✉️ Un mensaje del equipo</button>
         </div>
 
-        <h2 class="ranking-title">SELECT YOUR STATION</h2>
+        <h2 class="ranking-title">SELECCIONA TU ESTACIÓN</h2>
         <div id="missions-grid" class="missions-grid"></div>
     </main>
 
     <div id="welcome-modal" class="modal">
         <div class="modal-content welcome-letter">            
-            <p class="letter-greeting">Dear Monitor,</p>
-            <p>We want to thank you for your service as an official 'The Golden Scroll' monitor. While the participants are on a learning mission to solve mysteries and find the treasure, your mission as a monitor is to make that learning possible. We know that with your help, participants will be able to feel the Spirit and have fun as they learn the sacred truths contained in the scriptures.</p>
-            <p>The information provided for each mission reflects the content on the participant’s platform, along with instructions to properly set up your station before their arrival. A script is also included—not to be memorized, but to serve as a guide for leading your activity.</p>
-            <p>This is accompanied by the scriptures for your assigned story and tips to enhance the experience. You are expected to adapt this information to your participants' needs while staying focused on narrating the story according to the scriptures in a simple, easy-to-understand, and engaging way.</p>
+            <p class="letter-greeting">Estimado Monitor,</p>
+            <p>Queremos agradecerte por tu servicio como monitor oficial de 'El Pergamino Dorado'. Mientras los participantes están en una misión de aprendizaje para resolver misterios y encontrar el tesoro, tu misión como monitor es hacer que ese aprendizaje sea posible. Sabemos que con tu ayuda, los participantes podrán sentir el Espíritu y divertirse mientras aprenden las verdades sagradas contenidas en las escrituras.</p>
+            <p>La información proporcionada para cada misión refleja el contenido de la plataforma del participante, junto con instrucciones para configurar adecuadamente tu estación antes de su llegada. También se incluye un guion; no para ser memorizado, sino para servir como guía al dirigir tu actividad.</p>
+            <p>Esto se acompaña de las escrituras de la historia asignada y consejos para mejorar la experiencia. Se espera que adaptes esta información a las necesidades de tus participantes, manteniéndote enfocado en narrar la historia de acuerdo con las escrituras de una manera sencilla, fácil de entender y cautivadora.</p>
             
             <div class="letter-footer">
-                <p class="letter-closing">Good Luck!</p>
-                <p class="letter-signature">- The Golden Scroll</p>
+                <p class="letter-closing">¡Buena suerte!</p>
+                <p class="letter-signature">- El Pergamino Dorado</p>
             </div>
             
-            <button id="start-monitoring-btn">START MONITORING</button>
+            <button id="start-monitoring-btn">COMENZAR</button>
         </div>
     </div>
 
     <div id="footer-container"></div>
 
-    <script src="scripts/layout.js"></script>
+    <script type="module" src="scripts/layout.mjs"></script>
     <script type="module" src="scripts/monitorMenu.mjs"></script>
 </body>
 </html>

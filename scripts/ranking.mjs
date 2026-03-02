@@ -15,11 +15,11 @@ const app = initializeApp(firebaseConfig);
 const db = getFirestore(app);
 
 async function loadRanking() {
+    console.log("Iniciando carga de ranking...");
     const leaderboardContainer = document.getElementById('leaderboard-container');
     if (!leaderboardContainer) return;
 
     try {
-        // Make the consult by score
         const q = query(collection(db, "teams"), orderBy("score", "desc"));
         const querySnapshot = await getDocs(q);
 
@@ -28,11 +28,9 @@ async function loadRanking() {
         let rank = 1;
         querySnapshot.forEach((doc) => {
             const data = doc.data();
-            
             const item = document.createElement('div');
             item.className = 'rank-item';
             
-            // Use template strings to insert data
             item.innerHTML = `
                 <span class="rank-number">#${rank}</span>
                 <div class="rank-avatar" style="background-image: url('${data.avatar}')"></div>
@@ -50,4 +48,19 @@ async function loadRanking() {
     }
 }
 
-document.addEventListener('layoutReady', loadRanking);
+// --- CAMBIO CLAVE AQUÍ ---
+// En lugar de solo escuchar, verificamos si el contenedor del footer ya existe
+// Si el contenedor tiene contenido, significa que el layout ya cargó.
+function init() {
+    const footerLoaded = document.getElementById('footer-container').innerHTML.trim() !== "";
+    
+    if (footerLoaded) {
+        // Si el layout ya está listo, cargamos el ranking de una vez
+        loadRanking();
+    } else {
+        // Si no está listo, esperamos al evento
+        document.addEventListener('layoutReady', loadRanking);
+    }
+}
+
+init();

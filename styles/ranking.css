@@ -118,3 +118,13 @@ main {
     margin-top: 50px;
     font-weight: bold;
 }
+
+.leaderboard-list {
+    margin-top: 20px; /* Da espacio para que la corona del 1er lugar respire */
+    width: 85%;
+    max-width: 400px;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    padding-bottom: 80px;
+}

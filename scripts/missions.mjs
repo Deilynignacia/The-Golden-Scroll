@@ -1,35 +1,60 @@
-// Get data from LocalStorage
-const teamData = JSON.parse(localStorage.getItem("goldenScroll_team"));
-const missionButtons = document.querySelectorAll('.mission-btn');
+import { getFirestore, doc, onSnapshot } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-firestore.js";
+import { initializeApp } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-app.js";
 
-missionButtons.forEach(button => {
-    const id = button.getAttribute('data-id');
-    const status = teamData?.progress?.[id] || "locked";
+// Configuración necesaria para escuchar cambios en tiempo real
+const firebaseConfig = {
+    apiKey: "AIzaSyAon2En6oCIlGNhJuVDC7PYbFGzPy6bW5c",
+    authDomain: "the-golden-scroll.firebaseapp.com",
+    projectId: "the-golden-scroll",
+    storageBucket: "the-golden-scroll.firebasestorage.app",
+    messagingSenderId: "162425132870",
+    appId: "1:162425132870:web:0f8e982e27cae87d1eb747",
+    measurementId: "G-TMKSXWGNL9"
+};
 
-    const lockedImgPath = "images/padlock.jpg";
+const app = initializeApp(firebaseConfig);
+const db = getFirestore(app);
 
-    // Reset de clases por si acaso
-    button.classList.remove('is-locked', 'is-completed', 'is-unlocked');
+document.addEventListener('layoutReady', () => {
+    const localData = JSON.parse(localStorage.getItem("goldenScroll_team"));
+    if (!localData) return;
 
-    if (status === "locked") {
-            button.classList.add('is-locked');
-            button.setAttribute('disabled', 'true');
-            button.innerHTML = `<img src="images/padlock.jpg" alt="Locked" class="lock-icon">`;
-        } 
-        else if (status === "completed") {
-            button.classList.add('is-completed');
-            // Usamos el símbolo directo ✨ y mantenemos el texto de la misión
-            button.innerHTML = `<span>Mission ${id} ✨</span>`;
-        }
-        else if (status === "unlocked") {
-            button.classList.add('is-unlocked');
-            button.innerHTML = `<span>Mission ${id}</span>`;
-        }
+    // --- ESCUCHA EN TIEMPO REAL ---
+    // Usamos onSnapshot para que, en cuanto el monitor presione "MARK AS DONE",
+    // el mapa del niño se actualice sin tener que recargar la página.
+    const teamRef = doc(db, "teams", localData.name); 
 
-    button.addEventListener('click', () => {
-        // Ahora pueden entrar si está desbloqueada O si ya la completaron (para repasar)
-        if (status === "unlocked" || status === "completed") {
-            window.location.href = `mission-details.html?id=${id}`;
+    onSnapshot(teamRef, (docSnap) => {
+        if (docSnap.exists()) {
+            const teamData = docSnap.data();
+            // Actualizamos el localStorage para que el resto de la app esté al día
+            localStorage.setItem("goldenScroll_team", JSON.stringify(teamData));
+            
+            renderMissions(teamData.progress);
         }
     });
 });
+
+function renderMissions(progress) {
+    const missionButtons = document.querySelectorAll('.mission-btn');
+
+    missionButtons.forEach(btn => {
+        const id = btn.getAttribute('data-id');
+        const status = progress[id] || "locked";
+
+        // Gestionamos las clases para el CSS (Neo-brutalismo)
+        btn.classList.remove('locked', 'unlocked', 'completed');
+        btn.classList.add(status);
+
+        // Lógica de interacción
+        if (status === "locked") {
+            btn.disabled = true;
+            btn.onclick = null; // Quitamos cualquier evento previo
+        } else {
+            btn.disabled = false;
+            btn.onclick = () => {
+                window.location.href = `mission-details.html?id=${id}`;
+            };
+        }
+    });
+}

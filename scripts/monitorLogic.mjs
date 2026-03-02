@@ -1,6 +1,5 @@
 import { missionData } from './monitorMissionData.mjs'; 
 import { initializeApp } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-app.js";
-// Añadimos doc y updateDoc aquí abajo
 import { getFirestore, collection, getDocs, doc, updateDoc } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-firestore.js";
 
 const firebaseConfig = {
@@ -51,49 +50,67 @@ async function loadTeamsForMission(missionId) {
 
     querySnapshot.forEach((teamDoc) => {
         const team = teamDoc.data();
-        const teamId = teamDoc.id; // Necesitamos el ID del documento para actualizarlo
-        
-        // Verificamos si esta misión ya está completada por el equipo
-        // Asumiremos que en Firebase los equipos tienen un array llamado 'completedMissions'
+        const teamId = teamDoc.id; 
+
+        // Filtro para no mostrar a los monitores en la lista de gestión de equipos
+        if (team.role === "monitor" || team.name === "MONITORES") return;
+
+        // Verificamos si esta misión específica ya fue completada por el equipo
         const isCompleted = team.completedMissions && team.completedMissions.includes(missionId);
 
         const card = document.createElement('div');
         card.className = `team-unlock-card ${isCompleted ? 'completed' : ''}`;
         card.innerHTML = `
             <div class="team-info">
-                <img src="${team.avatar}" alt="avatar" style="width:40px; height:40px;">
+                <img src="${team.avatar}" alt="avatar" style="width:40px; height:40px; border-radius: 50%;">
                 <span>${team.name}</span>
             </div>
         `;
 
         const btn = document.createElement('button');
-        btn.innerText = isCompleted ? 'COMPLETED' : 'MARK AS DONE';
+        btn.innerText = isCompleted ? 'COMPLETADO' : 'MARCAR LOGRADA';
         btn.disabled = isCompleted;
         btn.className = isCompleted ? 'btn-done' : 'btn-unlock';
         
         btn.addEventListener('click', async () => {
-            btn.innerText = "Saving...";
+            btn.innerText = "Guardando...";
             btn.disabled = true;
 
             try {
                 const teamRef = doc(db, "teams", teamId);
-                
-                // Obtenemos la lista actual o creamos una vacía
                 let currentMissions = team.completedMissions || [];
                 
                 if (!currentMissions.includes(missionId)) {
                     currentMissions.push(missionId);
                     
-                    await updateDoc(teamRef, {
-                        completedMissions: currentMissions,
-                        progress: currentMissions.length * 10 // Ejemplo: 10% por misión
-                    });
+                    const totalMissions = 10;
+                    const newProgress = Math.min((currentMissions.length / totalMissions) * 100, 100);
+                    const nextMissionId = parseInt(missionId) + 1;
 
-                    btn.innerText = "DONE!";
+                    // --- ACTUALIZACIÓN ATÓMICA PARA PRESERVAR ESTADOS ---
+                    // Al usar el formato "objeto.campo" nos aseguramos de no borrar las misiones previas
+                    const updates = {
+                        completedMissions: currentMissions,
+                        score: (team.score || 0) + 10, // Ejemplo: suma puntos por misión
+                        lastActive: Date.now()
+                    };
+
+                    // Marca la actual como completada en el mapa de progreso
+                    updates[`progress.${missionId}`] = "completed";
+
+                    // Desbloquea la siguiente misión si no hemos llegado al límite (10)
+                    if (nextMissionId <= 10) {
+                        updates[`progress.${nextMissionId}`] = "unlocked";
+                        updates.currentChallenge = nextMissionId; // Actualiza el reto activo del equipo
+                    }
+
+                    await updateDoc(teamRef, updates);
+
+                    btn.innerText = "¡LISTO!";
                     card.classList.add('completed');
                 }
             } catch (error) {
-                console.error("Error updating progress:", error);
+                console.error("Error al actualizar progreso:", error);
                 btn.innerText = "Error";
                 btn.disabled = false;
             }

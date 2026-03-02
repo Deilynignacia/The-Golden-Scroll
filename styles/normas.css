@@ -1,0 +1,126 @@
+/* --- Contenedor General --- */
+.rules-container {
+    background-color: var(--color-background);
+    padding: 40px 15px 120px 15px;
+    min-height: 100vh;
+    position: relative;
+    overflow-x: hidden;
+}
+
+/* --- Título con Estilo de "Nivel" (Dinamismo Neobrutalista) --- */
+.rules-title {
+    font-family: var(--font-titles);
+    font-size: 2.8rem;
+    color: black;
+    text-align: center;
+    text-transform: uppercase;
+    line-height: 0.8;
+    margin-bottom: 50px;
+    transform: rotate(-2deg); 
+    background: var(--color-primary);
+    display: inline-block;
+    padding: 10px 20px;
+    border: 4px solid black;
+    box-shadow: 6px 6px 0px black;
+}
+
+.center-title { text-align: center; width: 100%; }
+
+/* --- La Ruta (Línea conectora estilo Mapa) --- */
+.rules-list {
+    position: relative;
+    list-style: none;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+}
+
+.rules-list::before {
+    content: '';
+    position: absolute;
+    left: 50%;
+    top: 0;
+    bottom: 0;
+    width: 6px;
+    background-image: linear-gradient(black 50%, rgba(255,255,255,0) 0%);
+    background-position: center;
+    background-size: 6px 20px;
+    background-repeat: repeat-y;
+    transform: translateX(-50%);
+    z-index: 1;
+}
+
+/* --- Burbujas de Reglas (Con Padding Extra para Respirar) --- */
+.rules-list li {
+    position: relative;
+    width: 85%; 
+    margin-bottom: 50px; /* Más espacio entre tarjetas para claridad visual */
+    z-index: 2;
+    border: 4px solid black;
+    border-radius: 25px;
+    
+    /* Espacio interno aumentado para que el texto no toque los bordes */
+    padding: 30px 25px; 
+    
+    box-shadow: 8px 8px 0px black; /* Sombra sólida neobrutalista */
+    transition: transform 0.2s;
+}
+
+/* Zig-Zag: Impares izquierda, Pares derecha */
+.rules-list li:nth-child(odd) {
+    align-self: flex-start;
+    margin-right: auto;
+    border-bottom-left-radius: 0; 
+}
+
+.rules-list li:nth-child(even) {
+    align-self: flex-end;
+    margin-left: auto;
+    border-bottom-right-radius: 0;
+}
+
+/* --- Colores Sólidos Vibrantes --- */
+.rules-list li:nth-child(3n+1) { background-color: var(--color-support); }   /* Naranja */
+.rules-list li:nth-child(3n+2) { background-color: var(--color-highlight); } /* Verde */
+.rules-list li:nth-child(3n+3) { background-color: var(--color-secondary); } /* Morado */
+
+/* Estilo de Texto con Interlineado Mejorado */
+.rules-list li strong {
+    font-family: var(--font-titles);
+    font-size: 1.4rem; 
+    display: block;
+    color: white;
+    text-shadow: 2px 2px 0px black;
+    margin-bottom: 12px; /* Separación clara entre título y descripción */
+}
+
+.rules-list li .rule-text {
+    font-family: var(--font-body);
+    font-size: 1.05rem; 
+    color: white;
+    font-weight: 500;
+    line-height: 1.5; /* Texto más fácil de leer para niños */
+    display: block;
+}
+
+/* --- Botón "¡LISTO PARA EMPEZAR!" --- */
+.btn-action {
+    display: block;
+    margin: 50px auto 0;
+    background-color: var(--color-primary);
+    color: black;
+    border: 4px solid black;
+    padding: 20px;
+    font-family: var(--font-titles);
+    font-size: 1.6rem;
+    border-radius: 20px;
+    box-shadow: 8px 8px 0px black;
+    text-align: center;
+    text-decoration: none;
+    transition: transform 0.1s;
+}
+
+.btn-action:active {
+    transform: translate(4px, 4px);
+    box-shadow: 2px 2px 0px black;
+}

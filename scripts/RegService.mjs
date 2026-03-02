@@ -1,42 +1,45 @@
 import { missionData } from './missionData.mjs';
 import { saveTeamToCloud } from './Firebase.mjs';
 
-// Cat Avatar API
-const BASE_URL = "https://cat-avatars.vercel.app/api/cat";
-
 export function generateAvatar(teamName) {
     const name = teamName || "Adan";
     return `https://cat-avatars.vercel.app/api/cat?name=${encodeURIComponent(name)}`;
 }
 
-// Form data
-export async function registerTeam(teamName, avatarUrl, childName, companionName) {
+// Añadimos 'role' y 'customProgress' como parámetros opcionales
+export async function registerTeam(teamName, avatarUrl, childName, companionName, role = "player", password = "", customProgress = null) {
 
-    const progressMap = {};
+    // Si no viene un progreso personalizado (niños), generamos el inicial
+    const progressMap = customProgress || {};
     
-    missionData.missions.forEach((mission, index) => {
-        progressMap[mission.id] = (index === 0) ? "unlocked" : "locked";
-    });
+    if (!customProgress) {
+        missionData.missions.forEach((mission, index) => {
+            // Estado inicial: Misión 1 "unlocked", el resto "locked"
+            progressMap[mission.id] = (index === 0) ? "unlocked" : "locked";
+        });
+    }
 
     const teamData = {
         name: teamName,
         avatar: avatarUrl,
         childName: childName,       
         companionName: companionName, 
+        role: role, // Importante para filtrar en el Monitor Hub
+        password: password,
         score: 0,
         currentChallenge: 1,
         progress: progressMap,
+        completedMissions: [], // Array para rastrear misiones finalizadas
         lastActive: new Date().getTime()
     };
 
-    // LocalStorage
     localStorage.setItem("goldenScroll_team", JSON.stringify(teamData));
+    localStorage.setItem("user_role", role);
 
-    // Firebase
     try {
         await saveTeamToCloud(teamData);
-        console.log("Your team's cat and progress were successfully saved!");
+        console.log("¡Datos guardados con éxito!");
     } catch (error) {
-        console.error("Oh no! The cat got lost!", error);
+        console.error("Error al guardar en la nube:", error);
     }
 }
