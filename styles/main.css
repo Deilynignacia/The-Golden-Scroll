@@ -1,3 +1,6 @@
+/* =========================================================
+   REGLAS GLOBALES Y VARIABLES
+   ========================================================= */
 * {
     box-sizing: border-box; 
     margin: 0;
@@ -37,7 +40,17 @@ main {
     gap: 20px;
 }
 
-/* Header */
+/* =========================================================
+   HEADER
+   ========================================================= */
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px;
+    width: 100%;
+}
+
 #team-profile {
     width: 45px;
     height: 45px;
@@ -60,62 +73,72 @@ main {
     height: auto;
 }
 
-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 10px 20px;
-    width: 100%;
-}
-
-
+/* =========================================================
+   FOOTER DINÁMICO (SISTEMA DE ICONOS ACTIVOS)
+   ========================================================= */
 footer {
     position: fixed;
     bottom: 0;
     left: 0;
     width: 100%;
     height: 70px;
-
     display: flex;
     justify-content: space-around;
     align-items: center;
     z-index: 1000;
-
-    display: flex;
-    justify-content: space-around;
-    align-items: center;
-    width: 100%;
     padding: 10px 0;
     background-color: var(--color-background);
+    border-top: 2px solid rgba(0,0,0,0.05);
 }
 
-
 .nav-icon {
+    position: relative;
     display: flex;
     justify-content: center;
     align-items: center;
     padding: 10px;
     text-decoration: none;
     width: 60px;
+    transition: all 0.3s ease;
 }
 
 .nav-icon img {
     width: 30px;
     height: auto;
-    transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    /* Animación elástica para cuando cambia el estado */
+    transition: all 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55);
 }
 
-/* Active */
+/* --- ESTADO ACTIVO --- */
 .nav-icon.active img {
-    transform: scale(1.3) translateY(-2px);
-    filter: drop-shadow(2px 2px 0px rgba(0,0,0,0.5));
+    transform: scale(1.5) translateY(-5px); /* Se agranda y flota más arriba */
+    filter: drop-shadow(0px 8px 4px rgba(0,0,0,0.2)); /* Sombra de elevación */
 }
 
-/* Profile Modal */
+/* Indicador visual: Puntito debajo del icono activo */
+.nav-icon.active::after {
+    position: absolute;
+    bottom: 2px;
+    width: 6px;
+    height: 6px;
+    background-color: var(--color-primary);
+    border-radius: 50%;
+    border: 1px solid black;
+    animation: fadeInPoint 0.4s ease;
+}
+
+@keyframes fadeInPoint {
+    from { opacity: 0; transform: scale(0); }
+    to { opacity: 1; transform: scale(1); }
+}
+
+/* =========================================================
+   MODALES (PERFIL Y DESAFÍO)
+   ========================================================= */
 #modal-profile {
     display: none;
     position: fixed;
-    z-index: 1000;
+    z-index: 2000;
     left: 0;
     top: 0;
     width: 100%;
@@ -137,16 +160,6 @@ footer {
     box-shadow: 8px 8px 0px black;
 }
 
-#modal-cat-avatar {
-    width: 100%;
-    height: 100%;
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
-    border-radius: 50%;
-    background-color: white;
-}
-
 .avatar-container.big {
     width: 120px;
     height: 120px;
@@ -158,6 +171,14 @@ footer {
     display: flex;
     justify-content: center;
     align-items: center;
+}
+
+#modal-cat-avatar {
+    width: 100%;
+    height: 100%;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
 }
 
 .info-box {
@@ -179,19 +200,18 @@ footer {
     font-size: 1.1rem;
     margin: 0;
 }
+
 /* =========================================================
    SISTEMA DE MODAL: DESAFÍO FINAL (El Pergamino Dorado)
-   ESTILO ADAPTADO A MISIONES
    ========================================================= */
 
-/* 1. Fondo Oscuro */
 .modal-overlay {
     position: fixed;
     top: 0;
     left: 0;
     width: 100vw;
     height: 100vh;
-    background-color: rgba(0, 0, 0, 0.7); /* Un poco más suave */
+    background-color: rgba(0, 0, 0, 0.7);
     display: none; 
     justify-content: center;
     align-items: center;
@@ -199,65 +219,52 @@ footer {
     padding: 20px;
 }
 
-/* 2. La Tarjeta (Inspirada en .parchment) */
 .challenge-modal {
-    background-color: #fdf5e6; /* Color crema igual a tus misiones */
     background: linear-gradient(135deg, #836e20 0%, #e3d49c 50%, #F6CC39 100%);
-    transform: scale(1.1);
-    border-color: #856d1c;
-    display: none; 
+    border: 4px solid #856d1c;
     border-radius: 15px;
     padding: 30px 20px;
     width: 90%;
     max-width: 400px;
     text-align: center;
     position: relative;
-    box-shadow: 8px 8px 0px black; /* Sombra igual a tus tarjetas */
+    box-shadow: 8px 8px 0px black;
     display: flex;
     flex-direction: column;
     align-items: center;
-    animation: modalPop 0.4s ease-out;
+    animation: modalPop 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
 }
 
-/* 3. Título del Modal (Inspirado en #title-dtl) */
+@keyframes modalPop {
+    from { transform: scale(0.5); opacity: 0; }
+    to { transform: scale(1); opacity: 1; }
+}
+
 .challenge-modal h2 {
-    font-family: 'Fredoka', sans-serif;
+    font-family: var(--font-titles);
     font-size: 1.8rem;
     color: #202020;
     -webkit-text-stroke: 1px black;
-    text-shadow: 2px 2px 0px rgba(0,0,0,0.1);
     margin-bottom: 15px;
     text-transform: uppercase;
 }
 
-/* 4. El Párrafo de instrucción */
-.challenge-modal p {
-    font-family: var(--font-body);
-    font-size: 1rem;
-    color: #333;
-    line-height: 1.4;
-    margin-bottom: 20px;
-}
-
-/* 5. El Input de Texto (Estilo limpio) */
 #challenge-password {
     width: 100%;
     padding: 12px;
     font-family: var(--font-body);
     font-size: 1.1rem;
-    border: 2px solid black;
+    border: 3px solid black;
     border-radius: 10px;
     margin-bottom: 15px;
     text-align: center;
     background: white;
-    box-shadow: 4px 4px 0px rgba(0,0,0,0.05);
 }
 
-/* 6. Botón REVELAR (Morado como tu botón de volver) */
-.challenge-modal .feedback-btn {
-    background-color: #000000; /* El morado de tu app */
+.feedback-btn {
+    background-color: #000000;
     color: white;
-    font-family: 'Fredoka', sans-serif;
+    font-family: var(--font-titles);
     font-size: 1.2rem;
     padding: 12px 30px;
     border-radius: 50px;
@@ -268,76 +275,71 @@ footer {
     text-transform: uppercase;
 }
 
-.challenge-modal .feedback-btn:active {
+.feedback-btn:active {
     transform: translate(3px, 3px);
     box-shadow: 0px 0px 0px black;
 }
 
-/* 7. Cuadro de Respuesta (Efecto Papel Real sobre Dorado) */
+/* CUADRO DE RESPUESTA (Efecto Papel Real) */
 #challenge-response {
-    /* Gradiente sutil para simular volumen de papel */
     background: linear-gradient(to bottom, #ffffff 0%, #f9f9f9 100%);
-    
-    /* Borde doble: uno negro grueso y un pequeño margen interno */
     border: 3px solid black; 
     outline: 1px solid rgba(0,0,0,0.1);
     outline-offset: -8px;
-
     border-radius: 10px;
-    padding: 35px 25px 25px 25px; /* Más espacio arriba para la cinta */
+    padding: 35px 25px 25px 25px;
     margin-top: 20px;
-    
-    /* Sombra más profunda para que "salte" del dorado */
     box-shadow: 10px 10px 0px rgba(0,0,0,0.3); 
-    
     font-family: var(--font-body);
     font-size: 1.1rem;
     line-height: 1.6;
     color: #1a1a1a;
-    
-    animation: slideIn 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
     display: none;
     position: relative;
+    animation: slideInScroll 0.5s ease-out;
 }
 
-/* Decoración: "Cinta" que sostiene el papel */
+@keyframes slideInScroll {
+    from { transform: translateY(20px); opacity: 0; }
+    to { transform: translateY(0); opacity: 1; }
+}
+
 #challenge-response::before {
     content: "¡Llegaste al Final!";
     position: absolute;
     top: 0;
     left: 50%;
     transform: translate(-50%, -50%);
-    background-color: #000000; /* Fondo negro como tus botones */
-    color: #F6CC39; /* Texto dorado */
+    background-color: #000000;
+    color: var(--color-primary);
     padding: 5px 15px;
-    font-family: 'Fredoka', sans-serif;
+    font-family: var(--font-titles);
     font-size: 0.8rem;
     border-radius: 5px;
     border: 2px solid #856d1c;
     white-space: nowrap;
-    box-shadow: 2px 2px 0px rgba(0,0,0,0.2);
 }
 
-/* Estilo para el contenido del acertijo */
 #challenge-response strong {
-    color: #836e20; /* Color café oscuro/dorado del borde */
+    color: #836e20;
     display: block;
     margin-top: 10px;
     font-size: 1.2rem;
 }
 
-/* 8. Botón Cerrar "X" (Estilo Botón Negro de la App) */
+/* BOTÓN CERRAR "X" */
 .close-modal {
     position: absolute;
     top: -15px;
     right: -15px;
     width: 45px;
     height: 45px;
-    background-color: #000000; /* Negro para combinar con tus botones */
-    color: #f3f3f3; /* Texto dorado */
+    background-color: #000000;
+    color: #f3f3f3;
     border-radius: 50%;
+    border: 3px solid #856d1c;
     font-size: 1.5rem;
-    font-family: 'Fredoka', sans-serif;
+    font-family: var(--font-titles);
     font-weight: bold;
     cursor: pointer;
     box-shadow: 4px 4px 0px rgba(0,0,0,0.3);
@@ -351,4 +353,38 @@ footer {
 .close-modal:active {
     transform: translate(2px, 2px);
     box-shadow: 0px 0px 0px black;
+}
+
+/* Notificaciones */
+.notification-wrapper {
+    position: relative;
+    display: inline-block;
+}
+
+.notif-badge {
+    position: absolute;
+    top: -5px;
+    right: -5px;
+    background-color: #ff0000; /* Rojo alerta */
+    color: white;
+    font-family: var(--font-titles);
+    font-weight: bold;
+    font-size: 14px;
+    width: 22px;
+    height: 22px;
+    border-radius: 50%;
+    border: 2px solid black;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 2px 2px 0px black;
+    z-index: 10;
+    /* Animación de pulsación */
+    animation: pulseBadge 1.5s infinite;
+}
+
+@keyframes pulseBadge {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.2); }
+    100% { transform: scale(1); }
 }

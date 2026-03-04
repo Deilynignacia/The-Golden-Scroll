@@ -47,8 +47,8 @@ function initMonitorHub() {
 }
 
 
-if (document.getElementById('header-container')?.innerHTML !== "") {
+if (window.layoutLoaded) {
     initMonitorHub();
 } else {
-    document.addEventListener('layoutReady', initMonitorHub);
+    document.addEventListener('layoutReady', initMonitorHub, { once: true });
 }

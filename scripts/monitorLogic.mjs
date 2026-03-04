@@ -52,10 +52,8 @@ async function loadTeamsForMission(missionId) {
         const team = teamDoc.data();
         const teamId = teamDoc.id; 
 
-        // Filtro para no mostrar a los monitores en la lista de gestión de equipos
         if (team.role === "monitor" || team.name === "MONITORES") return;
 
-        // Verificamos si esta misión específica ya fue completada por el equipo
         const isCompleted = team.completedMissions && team.completedMissions.includes(missionId);
 
         const card = document.createElement('div');
@@ -83,25 +81,22 @@ async function loadTeamsForMission(missionId) {
                 if (!currentMissions.includes(missionId)) {
                     currentMissions.push(missionId);
                     
-                    const totalMissions = 10;
-                    const newProgress = Math.min((currentMissions.length / totalMissions) * 100, 100);
                     const nextMissionId = parseInt(missionId) + 1;
+                    const now = Date.now(); // Marca de tiempo para el desempate
 
-                    // --- ACTUALIZACIÓN ATÓMICA PARA PRESERVAR ESTADOS ---
-                    // Al usar el formato "objeto.campo" nos aseguramos de no borrar las misiones previas
+                    // --- ACTUALIZACIÓN ATÓMICA ---
                     const updates = {
                         completedMissions: currentMissions,
-                        score: (team.score || 0) + 10, // Ejemplo: suma puntos por misión
-                        lastActive: Date.now()
+                        score: (team.score || 0) + 10,
+                        lastActive: now,
+                        lastUpdate: now // ESTA ES LA CLAVE PARA EL RANKING
                     };
 
-                    // Marca la actual como completada en el mapa de progreso
                     updates[`progress.${missionId}`] = "completed";
 
-                    // Desbloquea la siguiente misión si no hemos llegado al límite (10)
                     if (nextMissionId <= 10) {
                         updates[`progress.${nextMissionId}`] = "unlocked";
-                        updates.currentChallenge = nextMissionId; // Actualiza el reto activo del equipo
+                        updates.currentChallenge = nextMissionId;
                     }
 
                     await updateDoc(teamRef, updates);

@@ -30,15 +30,39 @@ main {
 }
 
 /* Top Ranking */
+/* Contenedor principal para permitir movimientos internos */
+.leaderboard-list {
+    position: relative; /* Necesario para cálculos de posición */
+}
+
+/* Los items del ranking */
 .rank-item {
     display: flex;
     align-items: center;
     background-color: #f2f0ed;
-    border: 3px solid rgb(19, 19, 19);
+    border: 3px solid black;
     border-radius: 20px;
     padding: 12px 20px;
     box-shadow: 4px 4px 0px black;
-    transition: transform 0.2s;
+    
+    /* Transición suave para la opacidad y el transform */
+    transition: transform 0.6s cubic-bezier(0.34, 1.56, 0.64, 1), opacity 0.4s;
+}
+
+/* Animación de "destello" cuando alguien sube de puntos */
+@keyframes highlightUpdate {
+    0% { border-color: black; box-shadow: 4px 4px 0px black; }
+    50% { border-color: #F6CC39; box-shadow: 0px 0px 20px #F6CC39; }
+    100% { border-color: black; box-shadow: 4px 4px 0px black; }
+}
+
+.just-updated {
+    animation: highlightUpdate 1s ease-out;
+}
+
+@keyframes slideIn {
+    from { opacity: 0; transform: translateX(-10px); }
+    to { opacity: 1; transform: translateX(0); }
 }
 
 /* First Place */
