@@ -4,12 +4,11 @@
  */
 
 import { 
-    getFirestore, collection, query, orderBy, limit, onSnapshot, getDocs 
-} from "https://www.gstatic.com/firebasejs/10.7.1/firebase-firestore.js";
+    getFirestore, collection, query, orderBy, limit, onSnapshot, getDocs} from "https://www.gstatic.com/firebasejs/10.7.1/firebase-firestore.js";
+import { doc } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-firestore.js";
 
 async function loadLayout() {
     try {
-        // 1. Carga de componentes
         const [headerRes, footerRes] = await Promise.all([
             fetch('header.html'),
             fetch('footer.html')
@@ -18,35 +17,123 @@ async function loadLayout() {
         document.getElementById('header-container').innerHTML = await headerRes.text();
         document.getElementById('footer-container').innerHTML = await footerRes.text();
 
-        // 2. Inicialización
+        // Inicialización
         setupGlobalProfile();
         setupDynamicFooter();
+        setupEmaus();
+        setupLogoInfo(); // <-- Nueva función para el Logo
 
         console.log("Layout Ready");
         document.dispatchEvent(new Event('layoutReady'));
     } catch (error) {
         console.error("Error cargando el layout:", error);
     }
-
     window.layoutLoaded = true;
+}
+
+function setupLogoInfo() {
+    const logo = document.querySelector('.logo-app'); // Asegúrate que tu logo tenga esta clase o usa el ID
+    if (!logo) return;
+
+    logo.style.cursor = 'help'; // Indica que hay información disponible
+    logo.onclick = () => {
+        openDescriptionModal();
+    };
+}
+
+function openDescriptionModal() {
+    if (!document.getElementById('info-modal-overlay')) {
+        const infoHtml = `
+            <div id="info-modal-overlay" class="modal-overlay info-blue">
+                <div class="info-modal-content">
+                    <button onclick="document.getElementById('info-modal-overlay').style.display='none'" class="close-modal">×</button>
+                    <h2>EL PERGAMINO DORADO</h2>
+                    <p><strong>El Pergamino Dorado</strong> no es solo un juego, es una aventura épica de descubrimiento espiritual.</p>
+                    <p>Es una plataforma interactiva diseñada para que los niños se convierten en <strong>"buscadores de tesoros"</strong> mientras recorren las historias más asombrosas del Pentateuco.</p>
+                    <p>A través de misiones que mezclan el mundo real con el digital, los participantes junto a sus acompañantes deben descifrar acertijos, superar desafíos de ingenio y aprender principios eternos sobre su origen y su propósito en la tierra.</p>
+                    <p>¡BUENA SUERTE EXPLORADORES!</p>
+                </div>
+            </div>
+        `;
+        document.body.insertAdjacentHTML('beforeend', infoHtml);
+    }
+    document.getElementById('info-modal-overlay').style.display = 'flex';
 }
 
 function setupGlobalProfile() {
     const userRole = localStorage.getItem('user_role');
     const profileBtn = document.getElementById('team-profile');
-    if (!profileBtn) return;
+    const modal = document.getElementById('modal-profile');
+    const closeBtn = document.getElementById('close-profile');
+    
+    if (!profileBtn || !modal) return;
 
     let avatarUrl = "";
+    let teamDisplayName = ""; 
+    let participantName = ""; 
+    let companionName = "";   
+
     if (userRole === 'monitor') {
+        const monitorData = JSON.parse(localStorage.getItem("goldenScroll_team"));
         avatarUrl = "https://cat-avatars.vercel.app/api/cat?name=EMAUS";
+        teamDisplayName = "STAFF / MONITOR";
+        participantName = monitorData?.name || "Monitor"; 
+        companionName = "N/A"; 
     } else {
         const teamData = JSON.parse(localStorage.getItem("goldenScroll_team"));
         if (!teamData) return;
-        avatarUrl = teamData.avatar.replace('../', '').replace('./', '');
+        
+        avatarUrl = teamData.avatar ? teamData.avatar.replace('../', '').replace('./', '') : "images/default-avatar.png";
+        teamDisplayName = teamData.name || "Equipo";       
+        participantName = teamData.childName || "Explorador"; 
+        companionName = teamData.companionName || "No registrado"; 
     }
 
     profileBtn.style.backgroundImage = `url('${avatarUrl}')`;
     profileBtn.style.backgroundSize = 'cover';
+
+    profileBtn.onclick = () => {
+        const avatarContainer = document.getElementById('modal-cat-avatar');
+        if (avatarContainer) {
+            avatarContainer.style.backgroundImage = `url('${avatarUrl}')`;
+            avatarContainer.style.backgroundSize = 'cover';
+        }
+
+        const profileCard = modal.querySelector('.profile-card');
+        
+        // Limpiamos solo lo necesario para refrescar la info
+        profileCard.querySelectorAll('.info-box, h2').forEach(el => el.remove());
+
+        const infoHtml = `
+            <h2 style="margin-top:10px; color:black; font-family: 'Arial Black', sans-serif;">${teamDisplayName}</h2>
+            <div class="info-box">
+                <p class="label">PARTICIPANTE</p>
+                <p class="value">${participantName}</p>
+            </div>
+            <div class="info-box">
+                <p class="label">ACOMPAÑANTE</p>
+                <p class="value">${companionName}</p>
+            </div>
+        `;
+        
+        profileCard.insertAdjacentHTML('beforeend', infoHtml);
+        modal.style.display = 'flex';
+    };
+
+    // La X para cerrar que ya tienes en tu HTML
+    if (closeBtn) {
+        closeBtn.onclick = (e) => {
+            e.stopPropagation(); // Evita conflictos de clicks
+            modal.style.display = 'none';
+        };
+    }
+
+    // Cerrar al tocar el fondo oscuro
+    window.addEventListener('click', (event) => {
+        if (event.target == modal) {
+            modal.style.display = 'none';
+        }
+    });
 }
 
 function setupDynamicFooter() {
@@ -138,17 +225,26 @@ window.checkFinalPassword = () => {
                 <strong style="font-size: 1.5rem; display: block; margin-bottom: 10px;">¡FELICIDADES!</strong>
                 <p>Estás a un paso de terminar. Encontrarás el pergamino dorado al resolver este último acertijo:</p>
                 <p style="font-style: italic; line-height: 1.6;">
-                    "Para hallar el tesoro final debes volver a tu origen, ve al lugar donde los ancestros aguardan y cada nombre cuenta una historia que el tiempo no pudo borrar."
+                    "Para hallar el tesoro final debes volver a tu origen, al lugar donde los ancestros aguardan y cada nombre cuenta una historia que el tiempo no pudo borrar."
                 </p>
             </div>
         `;
         responseDiv.style.display = "block";
         window.lanzarConfeti(); 
+
+        // --- NUEVA LÓGICA: ACTIVAR PISTA EXTRA DE EMAÚS ---
+        const catBtn = document.getElementById("notifications");
+        if (catBtn) {
+            catBtn.classList.add("emaus-alert"); // Lo ponemos a brillar y saltar
+            catBtn.onclick = () => {
+                showEmausModal("¿Sientes eso? ¡Es la victoria respirándote en la nuca! Esta es mi última pista para ti: Este éxito no es solo tuyo, compartelo con tu familia. ¡CON TODA TU FAMILIA!");
+                catBtn.classList.remove("emaus-alert");
+            };
+        }
     } else {
         alert("Esa no es la palabra... sigue buscando en las misiones.");
     }
 };
-
 window.lanzarConfeti = () => {
     for (let i = 0; i < 50; i++) {
         const confeti = document.createElement('div');
@@ -168,5 +264,82 @@ window.lanzarConfeti = () => {
         setTimeout(() => confeti.remove(), 5000);
     }
 };
+
+function setupEmaus() {
+    const userRole = localStorage.getItem('user_role');
+    if (userRole === 'monitor') return; 
+
+    const teamData = JSON.parse(localStorage.getItem("goldenScroll_team"));
+    if (!teamData || !teamData.name) return;
+
+    const db = getFirestore();
+    const teamRef = doc(db, "teams", teamData.name);
+    const catBtn = document.getElementById("notifications");
+    if (!catBtn) return;
+
+    const messages = {
+        0: "¡Hola! Soy Emaús, tu monitor digital. Cuando me veas brillar es porque tengo un mensaje para ti. Para tu primera misión, no olvides que las respuestas pueden venir cuando menos lo esperes.",
+        1: "¡Gracias por ayudar a mis amigos del bosque! Para agradecerte, aquí tienes una pista: Recuerda que a veces, la persistencia es la clave.",
+        2: "Algo que me encanta de los animales, es que todos se comunican con diferentes sonidos. Mi amigo el león, ruge muuuy fuerte, el perro ladra cuando quiere jugar con la pelota, y la jirafa es muuuy calladita. Ustedes, los humanos, también se comunican de distintas maneras. ¿Recuerdas esa cosa en tu teléfono para traducir tomando fotos? Quizá sea momento de usarlo... ",
+        3: "El Pergamino Dorado está brillando más fuerte ahora...",
+        4: "A los gatos NOS ENCANTA perseguir las luces. ¿Tienes alguna por ahí?",
+        5: "Todos necesitamos relajarnos de vez en cuando. A mi me gusta pintar ¿y a ti?",
+        6: "El arte es mucho más que lindos dibujos, cuentan historias, secretos, y algunas veces, pistas. ¿Ves algún dibujo a tu alrededor ahora? ",
+        7: "Hay una gran diferencia entre desobedecer las reglas, y buscar soluciones creativas. ¿Haz intentado mirar las cosas desde otro ángulo?",
+        8: "A veces hay que mirar desde otro ángulo, y otras, hay que mirar dos veces. ¿Ya buscaste bien?",
+        9: "¡Uuuf! Matemáticas. Lo importante aquí es la precisión. Respira hondo, y... ¡Usa esos dedos para contar!",
+        10: "¿Sabías que para muchas personas, los números pueden ser un dolor de cabeza? Como si fuera una contraseña imposible de descifrar..."
+    };
+
+    let lastKnownProgress = -1;
+
+    onSnapshot(teamRef, (docSnap) => {
+        if (!docSnap.exists()) return;
+
+        const data = docSnap.data();
+        const progress = data.progress || {};
+        const completedCount = Object.values(progress).filter(s => s === "completed").length;
+
+        // Si es la primera carga o hay progreso nuevo
+        if (completedCount > lastKnownProgress) {
+            
+            // 1. Hacemos que Emaús llame la atención (clase 'emaus-alert')
+            catBtn.classList.add("emaus-alert"); 
+
+            // 2. Al hacer click, ve el mensaje y el brillo se va
+            catBtn.onclick = () => {
+                showEmausModal(messages[completedCount] || "¡Sigan adelante, equipo!");
+                catBtn.classList.remove("emaus-alert");
+            };
+
+            lastKnownProgress = completedCount;
+        }
+    });
+}
+
+function showEmausModal(message) {
+    if (!document.getElementById("emaus-modal")) {
+        const modalHTML = `
+            <div id="emaus-modal" class="modal-overlay">
+                <div class="emaus-modal-content">
+                    <button onclick="document.getElementById('emaus-modal').style.display='none'" class="close-modal">×</button>
+                    
+                    <div class="emaus-character">
+                        <img src="/images/modal.png" alt="Emaús">
+                    </div>
+
+                    <div class="emaus-bubble">
+                        <h2>EMAÚS DICE:</h2>
+                        <p id="emaus-text"></p>
+                    </div>
+                </div>
+            </div>
+        `;
+        document.body.insertAdjacentHTML("beforeend", modalHTML);
+    }
+
+    document.getElementById("emaus-text").innerText = message;
+    document.getElementById("emaus-modal").style.display = "flex";
+}
 
 loadLayout();

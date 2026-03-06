@@ -135,7 +135,47 @@ footer {
 /* =========================================================
    MODALES (PERFIL Y DESAFÍO)
    ========================================================= */
-#modal-profile {
+
+/* Botón de cerrar (X) del Perfil */
+#close-profile {
+    position: absolute;
+    top: -15px;      /* Sale un poco de la tarjeta para que se vea más dinámico */
+    right: -15px;
+    width: 45px;     /* Tamaño ideal para dedos pequeños */
+    height: 45px;
+    background-color: #ff4d4d; /* Rojo llamativo */
+    color: white;
+    font-family: 'Arial Black', sans-serif;
+    font-size: 1.5rem;
+    font-weight: bold;
+    
+    /* Estilo Pergamino Dorado */
+    border: 4px solid black;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    
+    /* Sombra sólida */
+    box-shadow: 4px 4px 0px black;
+    transition: all 0.1s ease;
+    z-index: 10;
+}
+
+/* Efecto al presionar */
+#close-profile:active {
+    box-shadow: 0px 0px 0px black;
+    transform: translate(3px, 3px);
+}
+
+/* Efecto Hover (opcional para PC) */
+#close-profile:hover {
+    background-color: #ff1a1a;
+    transform: scale(1.1);
+}
+
+   #modal-profile {
     display: none;
     position: fixed;
     z-index: 2000;
@@ -383,8 +423,136 @@ footer {
     animation: pulseBadge 1.5s infinite;
 }
 
-@keyframes pulseBadge {
-    0% { transform: scale(1); }
-    50% { transform: scale(1.2); }
-    100% { transform: scale(1); }
+/* --- ESTADO DE ALERTA: BRILLO Y MOVIMIENTO FUERTE --- */
+.emaus-alert {
+    transform: scale(1.3); /* Lo mantenemos más grande */
+    filter: drop-shadow(0 0 15px #ff6600) brightness(1.2); /* Brillo naranja vibrante */
+    animation: emaus-energy 1.2s infinite ease-in-out; /* Animación más rápida y fuerte */
+    z-index: 100;
+}
+
+@keyframes emaus-energy {
+    0%, 100% { 
+        transform: scale(1.3) translateY(0); 
+        filter: drop-shadow(0 0 12px #ff6600);
+    }
+    50% { 
+        transform: scale(1.5) translateY(-10px); /* Salto más alto y crece más */
+        filter: drop-shadow(0 0 25px #ffcc00); /* El brillo cambia a amarillo en el aire */
+    }
+}
+
+/* --- CUERPO DEL MODAL --- */
+.emaus-modal-content {
+    background: #ffffff; 
+    border: 6px solid #ffffff; 
+    border-radius: 1px;
+    padding: 45px 30px 40px 30px; /* Aumentado el padding superior para dar aire a Emaús */
+    position: relative;
+    max-width: 360px;
+    width: 85%;
+    text-align: center;
+    /* Sombra sólida inferior para efecto 3D de botón */
+   }
+
+/* --- EMAÚS ASOMADO --- */
+.emaus-character {
+    position: absolute;
+    top: -136px; /* Ajustado para el tamaño de 200px */
+    left: 50%;
+    transform: translateX(-50%);
+    width: 200px; 
+    z-index: 10001;
+    pointer-events: none;
+}
+
+.emaus-character img {
+    width: 100%;
+    height: auto;
+    /* Sombra naranja suave que hace que resalte del fondo oscuro */
+    filter: drop-shadow(0 8px 15px rgba(255, 102, 0, 0.3)); 
+}
+
+/* --- TEXTOS --- */
+.emaus-modal-content h2 {
+    color: #ff9800;
+    font-size: 1.8rem; 
+    margin: 0 0 10px 0;
+    font-family: 'Arial Black', sans-serif;
+    text-transform: uppercase;
+    letter-spacing: -1px;
+}
+
+.emaus-modal-content p {
+    font-size: 1rem;
+    color: #5d4037; 
+    line-height: 1.4;
+    font-weight: 700;
+    margin: 0;
+}
+
+/* --- BOTÓN CERRAR --- */
+.close-modal {
+    position: absolute;
+    top: -10px;
+    right: -10px;
+    background: #4f1702; 
+    color: white;
+    border: 4px solid #fff; 
+    border-radius: 50%;
+    width: 44px; /* Un poco más grande para ser "fat-finger friendly" */
+    height: 44px;
+    font-size: 1.4rem;
+    font-weight: 900;
+    cursor: pointer;
+    z-index: 10005; /* Siempre por encima del gato */
+    box-shadow: 0 4px 10px rgba(0,0,0,0.5);
+    transition: transform 0.2s ease;
+}
+
+.close-modal:hover {
+    transform: scale(1.1) rotate(90deg);
+}
+
+/* Animación de entrada para el modal */
+@keyframes emausAppear {
+    from { opacity: 0; transform: translateY(20px) scale(0.9); }
+    to { opacity: 1; transform: translateY(-30px) scale(1); }
+}
+
+/* --- MODAL INFORMATIVO CELESTE --- */
+.info-blue .info-modal-content {
+    background: #268191; /* Celeste muy suave */
+    border: 5px solid #062e4f; /* Borde azul vibrante */
+    border-radius: 25px;
+    padding: 30px;
+    max-width: 400px;
+    width: 85%;
+    position: relative;
+    text-align: center;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+    animation: slideUp 0.3s ease-out;
+}
+
+.info-blue h2 {
+    color: #ffffff; /* Azul oscuro */
+    margin-bottom: 20px;
+    font-family: 'Arial Black', sans-serif;
+}
+
+.info-blue p {
+    color: #ffffff;
+    font-size: 0.9rem;
+    line-height: 1.3;
+    margin-bottom: 15px;
+    text-align: left; /* Mejor para textos largos descriptivos */
+}
+
+.info-blue strong {
+    color: #e8ac36;
+}
+
+@keyframes slideUp {
+    from { transform: translateY(50px); opacity: 0; }
+    to { transform: translateY(0); opacity: 1; }
 }

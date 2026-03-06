@@ -40,7 +40,7 @@ export const missionData = {
             id: "3",
             title: "La Torre de Babel",
             subtitle: "Ladrillos de Idiomas",
-            childrenPlatform: "El Señor confundió las lenguas de la gente en Babel como castigo por su orgullo, ¡pero gracias a eso nacieron muchos idiomas nuevos! Usando el traductor de Google Lens, busca la torre de vasos en el idioma asignado por el monitor. Usa los vasos para construir la frase oculta.",
+            childrenPlatform: "El Señor confundió las lenguas de la gente en Babel como castigo por su orgullo, ¡pero gracias a eso nacieron muchos idiomas nuevos! Busca la torre de vasos en el idioma asignado por el monitor. Usa los vasos para construir la frase oculta.",
             icon: "images/icons/3.png",
             secretLetter: "J",
             prepGuide: {
