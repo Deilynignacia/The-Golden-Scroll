@@ -18,6 +18,10 @@ if (currentMission) {
     if (currentMission.id == "6") {
         setupPlagasGame();
     }
+
+    if (currentMission.id == "9") {
+    setupCensoGame();
+    }
 }
 
 function setupPlagasGame() {
@@ -111,6 +115,94 @@ function setupPlagasGame() {
         } else {
             // Si terminó, lanzamos el confeti
             if (window.lanzarConfeti) window.lanzarConfeti();
+        }
+    };
+
+    renderStep();
+}
+
+function setupCensoGame() {
+    const container = document.getElementById('description');
+    if (!container) return;
+
+    const originalActivity = container.innerText;
+
+    // Tus preguntas y respuestas
+    const preguntas = [
+        { q: "¿Cuántas personas mayores de 19 años participaron?", r: "6" },
+        { q: "¿Cuántas personas de Betel tienen el pelo negro?", r: "1" },
+        { q: "¿Cuántas años tiene la persona de Jericó que tiene el pelo rubio?", r: "8" },
+        { q: "¿Cuántas personas en total tienen el pelo castaño?", r: "3" },
+        { q: "¿Cuántas personas de Jericó tienen ojos de color negro o café oscuro?", r: "2" },
+        { q: "¿Cuántos niños (entre 7 y 11 años) hay en total en el censo?", r: "4" }
+    ];
+
+    let currentStep = 0;
+
+    const renderStep = () => {
+        let gameHtml = "";
+
+        if (currentStep < preguntas.length) {
+            gameHtml = `
+                <div class="plaga-box" style="margin-top: 20px;">
+                    <span class="plaga-counter">Pregunta ${currentStep + 1} de ${preguntas.length}</span>
+                    <p class="plaga-riddle">"${preguntas[currentStep].q}"</p>
+                    <input type="number" id="censo-answer" placeholder="Escribe el número..." autocomplete="off" inputmode="numeric">
+                    <button id="check-censo" class="feedback-btn">COMPROBAR</button>
+                    <p id="censo-error" style="color: red; display:none; font-size: 0.8rem; margin-top: 5px;">El número no es correcto. ¡Revisa la hoja del censo!</p>
+                </div>
+            `;
+        } else {
+            gameHtml = `
+                <div class="plaga-box correct-glow" style="margin-top: 20px;">
+                    <p class="plaga-riddle" style="font-weight: bold;">
+                        ¡Censo completado! <br><br> 
+                        Has demostrado ser un gran escriba de Israel. Ve con tu monitor para recibir tu siguiente instrucción.
+                    </p>
+                </div>
+            `;
+        }
+
+        container.innerHTML = `
+            <p class="mission-intro">${originalActivity}</p>
+            ${gameHtml}
+        `;
+
+        if (currentStep < preguntas.length) {
+            const input = document.getElementById('censo-answer');
+            const btn = document.getElementById('check-censo');
+
+            if (input) {
+                input.focus();
+                input.onkeyup = (e) => { if (e.key === 'Enter') btn.click(); };
+            }
+
+            if (btn) {
+                btn.onclick = () => {
+                    const userVal = input.value.trim();
+                    const correctVal = preguntas[currentStep].r;
+
+                    if (userVal === correctVal) {
+                        currentStep++;
+                        renderStep();
+                    } else {
+                        document.getElementById('censo-error').style.display = 'block';
+                        input.value = "";
+                        input.focus();
+                    }
+                };
+            }
+        } else {
+            // MENSAJE FINAL PERSONALIZADO
+            gameHtml = `
+                <div class="plaga-box correct-glow" style="margin-top: 20px;">
+                    <p class="plaga-riddle" style="font-weight: bold; font-style: normal;">
+                        ¡Censo completado! 🪶<br><br>
+                        Has demostrado ser un gran escriba de Israel.<br><br>
+                        <span style="color: #27ae60;">¿Puedes encontrar la única estación que aún no has visitado?</span>
+                    </p>
+                </div>
+            `;
         }
     };
 

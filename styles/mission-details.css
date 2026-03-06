@@ -181,14 +181,66 @@ main {
     color: #27ae60;
 }
 
-/* Animaciones */
-@keyframes slideIn {
-    from { opacity: 0; transform: translateY(10px); }
-    to { opacity: 1; transform: translateY(0); }
+#censo-answer, #plaga-answer {
+    width: 85%;
+    max-width: 280px;
+    padding: 15px;
+    border: 3px solid #000;
+    border-radius: 12px;
+    font-size: 1.2rem;
+    text-align: center;
+    margin-bottom: 15px;
+    background: #ffffff;
+    box-shadow: 4px 4px 0px #000;
+    outline: none;
+    transition: all 0.2s ease;
 }
+
+#censo-answer:focus {
+    transform: translate(-2px, -2px);
+    box-shadow: 6px 6px 0px #e67e22; /* Naranja al enfocar */
+    border-color: #e67e22;
+}
+
+/* Ocultar las flechas molestas del input de número en Chrome/Safari/Firefox */
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+input[type=number] {
+    -moz-appearance: textfield;
+}
+
+/* --- FEEDBACK Y ERRORES --- */
+
+#censo-error, #plaga-error {
+    background-color: #fff0f0;
+    color: #c0392b;
+    padding: 8px;
+    border-radius: 8px;
+    font-weight: bold;
+    font-size: 0.85rem;
+    margin-top: 5px;
+    animation: shake 0.4s ease-in-out;
+}
+
+.correct-glow {
+    background-color: #f0fff0;
+    border: 3px solid #27ae60;
+    color: #27ae60;
+    box-shadow: 6px 6px 0px #27ae60;
+}
+
+/* --- ANIMACIONES --- */
 
 @keyframes shake {
     0%, 100% { transform: translateX(0); }
-    25% { transform: translateX(-5px); }
-    75% { transform: translateX(5px); }
+    25% { transform: translateX(-6px); }
+    75% { transform: translateX(6px); }
+}
+
+@keyframes slideIn {
+    from { opacity: 0; transform: translateY(15px); }
+    to { opacity: 1; transform: translateY(0); }
 }
