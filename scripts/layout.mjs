@@ -281,14 +281,13 @@ function setupEmaus() {
         0: "¡Hola! Soy Emaús, tu monitor digital. Cuando me veas brillar es porque tengo un mensaje para ti. Para tu primera misión, no olvides que las respuestas pueden venir cuando menos lo esperes.",
         1: "¡Gracias por ayudar a mis amigos del bosque! Para agradecerte, aquí tienes una pista: Recuerda que a veces, la persistencia es la clave.",
         2: "Algo que me encanta de los animales, es que todos se comunican con diferentes sonidos. Mi amigo el león, ruge muuuy fuerte, el perro ladra cuando quiere jugar con la pelota, y la jirafa es muuuy calladita. Ustedes, los humanos, también se comunican de distintas maneras. ¿Recuerdas esa cosa en tu teléfono para traducir tomando fotos? Quizá sea momento de usarlo... ",
-        3: "El Pergamino Dorado está brillando más fuerte ahora...",
-        4: "A los gatos NOS ENCANTA perseguir las luces. ¿Tienes alguna por ahí?",
-        5: "Todos necesitamos relajarnos de vez en cuando. A mi me gusta pintar ¿y a ti?",
-        6: "El arte es mucho más que lindos dibujos, cuentan historias, secretos, y algunas veces, pistas. ¿Ves algún dibujo a tu alrededor ahora? ",
-        7: "Hay una gran diferencia entre desobedecer las reglas, y buscar soluciones creativas. ¿Haz intentado mirar las cosas desde otro ángulo?",
-        8: "A veces hay que mirar desde otro ángulo, y otras, hay que mirar dos veces. ¿Ya buscaste bien?",
-        9: "¡Uuuf! Matemáticas. Lo importante aquí es la precisión. Respira hondo, y... ¡Usa esos dedos para contar!",
-        10: "¿Sabías que para muchas personas, los números pueden ser un dolor de cabeza? Como si fuera una contraseña imposible de descifrar..."
+        3: "A los gatos NOS ENCANTA perseguir las luces. ¿Tienes alguna por ahí?",
+        4: "Todos necesitamos relajarnos de vez en cuando. A mi me gusta pintar ¿y a ti?",
+        5: "El arte es mucho más que lindos dibujos, cuentan historias, secretos, y algunas veces, pistas. ¿Ves algún dibujo a tu alrededor ahora? ",
+        6: "Hay una gran diferencia entre desobedecer las reglas, y buscar soluciones creativas. ¿Haz intentado mirar las cosas desde otro ángulo?",
+        7: "A veces hay que mirar desde otro ángulo, y otras, hay que mirar dos veces. ¿Ya buscaste bien?",
+        8: "¡Uuuf! Matemáticas. Lo importante aquí es la precisión. Respira hondo, y... ¡Usa esos dedos para contar!",
+        9: "¿Sabías que para muchas personas, los números pueden ser un dolor de cabeza? Como si fuera una contraseña imposible de descifrar..."
     };
 
 // 1. Recuperamos el último que el usuario REALMENTE leyó al hacer click

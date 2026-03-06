@@ -94,7 +94,7 @@ export const missionData = {
             id: "6",
             title: "Las Diez Plagas",
             subtitle: "Dios liberó a Su pueblo",
-            childrenPlatform: "Cuando el Faraón se negó a liberar al pueblo de Israel, el Señor envió 10 plagas a través de Moses. Después de la décima, el pueblo fue finalmente libre! Resuelve los acertijos sobre las plagas en tu aplicación (¡están en orden!).",
+            childrenPlatform: "Los niños ven la primera adivinanza.",
             icon: "images/icons/6.png",
             secretLetter: "O",
             prepGuide: {

@@ -113,3 +113,82 @@ main {
     transform: translate(3px, 3px);
     box-shadow: 0px 0px 0px black;
 }
+
+/* --- SECCIÓN ADIVINANZAS (MISIÓN 6) --- */
+
+.plaga-box {
+    width: 100%;
+    margin-top: 30px;
+    padding-top: 20px;
+    text-align: center;
+    animation: slideIn 0.3s ease-out;
+}
+
+.plaga-counter {
+    display: block;
+    font-size: 0.8rem;
+    font-weight: bold;
+    color: #8b4513;
+    text-transform: uppercase;
+    margin-bottom: 15px;
+}
+
+.plaga-riddle {
+    font-size: 1.1rem;
+    line-height: 1.6;
+    color: #2c3e50;
+    font-style: italic;
+    margin: 0 auto 20px;
+    max-width: 100%;
+}
+
+/* Cuadro de texto unificado */
+#plaga-answer {
+    width: 90%;
+    max-width: 300px;
+    padding: 12px;
+    border: 3px solid #000;
+    border-radius: 12px;
+    font-size: 1.1rem;
+    text-align: center;
+    margin-bottom: 15px;
+    background: #fff;
+    outline: none;
+    box-shadow: 4px 4px 0px #000; /* Estética de botón */
+    transition: all 0.2s;
+}
+
+#plaga-answer:focus {
+    border-color: #e67e22;
+    transform: translate(-2px, -2px);
+    box-shadow: 6px 6px 0px #e67e22;
+}
+
+#plaga-error {
+    color: #e74c3c;
+    font-weight: bold;
+    margin-top: 5px;
+    animation: shake 0.3s ease-in-out;
+}
+
+.correct-glow {
+    margin-top: 20px;
+    padding: 15px;
+    background-color: #f0fff0;
+    border: 3px solid #27ae60;
+    border-radius: 15px;
+    box-shadow: 6px 6px 0px #27ae60;
+    color: #27ae60;
+}
+
+/* Animaciones */
+@keyframes slideIn {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes shake {
+    0%, 100% { transform: translateX(0); }
+    25% { transform: translateX(-5px); }
+    75% { transform: translateX(5px); }
+}
