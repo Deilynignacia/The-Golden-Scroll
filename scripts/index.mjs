@@ -1,7 +1,7 @@
 import { initializeApp } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-app.js";
 import { getFirestore, doc, getDoc } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-firestore.js";
 
-// Tu config de Firebase (la misma que usas en el monitor)
+// Tu config de Firebase
 const firebaseConfig = { 
     apiKey: "AIzaSyAon2En6oCIlGNhJuVDC7PYbFGzPy6bW5c",
     authDomain: "the-golden-scroll.firebaseapp.com",
@@ -17,12 +17,14 @@ const db = getFirestore(app);
 document.addEventListener('layoutReady', async () => {
     let teamData = JSON.parse(localStorage.getItem("goldenScroll_team"));
 
-    // --- NUEVO: Sincronización con Firebase ---
+    // --- 1. Sincronización PRIORITARIA con Firebase ---
+    // Esperamos a que Firebase responda para tener la "verdad" antes de dibujar nada
     if (teamData && teamData.name) {
         try {
             const docRef = doc(db, "teams", teamData.name);
             const docSnap = await getDoc(docRef);
             if (docSnap.exists()) {
+                // Actualizamos la variable local con los datos frescos de la nube
                 teamData = docSnap.data();
                 localStorage.setItem("goldenScroll_team", JSON.stringify(teamData));
             }
@@ -31,13 +33,12 @@ document.addEventListener('layoutReady', async () => {
         }
     }
 
-    // --- Progress Tracker (Solo misiones COMPLETADAS) ---
+    // --- 2. Progress Tracker (Ahora usa los datos ya sincronizados) ---
     const progressFill = document.querySelector('.progress-fill');
     if (progressFill) {
-        let percentage = 0; // Empezamos en 0 si no hay nada
+        let percentage = 0; 
         if (teamData && teamData.progress) {
             const totalMissions = 10; 
-            // CAMBIO: Solo contamos las que dicen "completed"
             const completedCount = Object.values(teamData.progress).filter(s => s === "completed").length;
             percentage = (completedCount / totalMissions) * 100;
         }

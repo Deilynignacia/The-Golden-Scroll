@@ -54,7 +54,8 @@ async function loadTeamsForMission(missionId) {
 
         if (team.role === "monitor" || team.name === "MONITORES") return;
 
-        const isCompleted = team.completedMissions && team.completedMissions.includes(missionId);
+        // Determinamos el estado inicial
+        let isCompleted = team.completedMissions && team.completedMissions.includes(missionId);
 
         const card = document.createElement('div');
         card.className = `team-unlock-card ${isCompleted ? 'completed' : ''}`;
@@ -66,30 +67,36 @@ async function loadTeamsForMission(missionId) {
         `;
 
         const btn = document.createElement('button');
-        btn.innerText = isCompleted ? 'COMPLETADO' : 'MARCAR LOGRADA';
-        btn.disabled = isCompleted;
+        // El botón ahora nunca está disabled para poder corregir
+        btn.innerText = isCompleted ? 'COMPLETADO (Deshacer)' : 'MARCAR LOGRADA';
         btn.className = isCompleted ? 'btn-done' : 'btn-unlock';
         
         btn.addEventListener('click', async () => {
+            // Verificamos el estado actual antes de procesar
+            const currentlyDone = btn.classList.contains('btn-done');
+            
             btn.innerText = "Guardando...";
             btn.disabled = true;
 
             try {
                 const teamRef = doc(db, "teams", teamId);
                 let currentMissions = team.completedMissions || [];
-                
-                if (!currentMissions.includes(missionId)) {
-                    currentMissions.push(missionId);
+                const now = Date.now();
+                let updates = {};
+
+                if (!currentlyDone) {
+                    // --- LÓGICA PARA MARCAR COMO LOGRADA ---
+                    if (!currentMissions.includes(missionId)) {
+                        currentMissions.push(missionId);
+                    }
                     
                     const nextMissionId = parseInt(missionId) + 1;
-                    const now = Date.now(); // Marca de tiempo para el desempate
 
-                    // --- ACTUALIZACIÓN ATÓMICA ---
-                    const updates = {
+                    updates = {
                         completedMissions: currentMissions,
                         score: (team.score || 0) + 10,
                         lastActive: now,
-                        lastUpdate: now // ESTA ES LA CLAVE PARA EL RANKING
+                        lastUpdate: now
                     };
 
                     updates[`progress.${missionId}`] = "completed";
@@ -98,12 +105,42 @@ async function loadTeamsForMission(missionId) {
                         updates[`progress.${nextMissionId}`] = "unlocked";
                         updates.currentChallenge = nextMissionId;
                     }
+                    } else {
+                        // --- LÓGICA PARA CORREGIR (DESMARCAR Y VOLVER A ESTADO PENDIENTE) ---
+                        currentMissions = currentMissions.filter(id => id !== missionId);
+                        
+                        updates = {
+                            completedMissions: currentMissions,
+                            score: Math.max(0, (team.score || 0) - 10), 
+                            lastUpdate: now,
+                            // ESTA ES LA CLAVE: 
+                            // La misión actual vuelve a estar "desbloqueada" (el niño puede entrar)
+                            // pero ya no está "completada".
+                            [`progress.${missionId}`]: "unlocked", 
+                            currentChallenge: parseInt(missionId)
+                        };
 
-                    await updateDoc(teamRef, updates);
+                        // Bloqueamos la siguiente misión para que no se adelanten
+                        const nextMissionId = parseInt(missionId) + 1;
+                        if (nextMissionId <= 10) {
+                            updates[`progress.${nextMissionId}`] = null; // O "locked"
+                        }
+                    }
 
-                    btn.innerText = "¡LISTO!";
+                await updateDoc(teamRef, updates);
+
+                // Actualizar interfaz visual
+                const isNowDone = currentMissions.includes(missionId);
+                btn.innerText = isNowDone ? 'COMPLETADO (Deshacer)' : 'MARCAR LOGRADA';
+                btn.className = isNowDone ? 'btn-done' : 'btn-unlock';
+                btn.disabled = false;
+                
+                if (isNowDone) {
                     card.classList.add('completed');
+                } else {
+                    card.classList.remove('completed');
                 }
+
             } catch (error) {
                 console.error("Error al actualizar progreso:", error);
                 btn.innerText = "Error";
