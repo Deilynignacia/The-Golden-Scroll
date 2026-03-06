@@ -291,7 +291,11 @@ function setupEmaus() {
         10: "¿Sabías que para muchas personas, los números pueden ser un dolor de cabeza? Como si fuera una contraseña imposible de descifrar..."
     };
 
-    let lastKnownProgress = -1;
+// 1. Recuperamos el último que el usuario REALMENTE leyó al hacer click
+    let lastReadProgress = parseInt(localStorage.getItem("emaus_last_read"));
+    
+    // Si es la primerísima vez (null), ponemos -1 para que brille el mensaje 0
+    if (isNaN(lastReadProgress)) lastReadProgress = -1;
 
     onSnapshot(teamRef, (docSnap) => {
         if (!docSnap.exists()) return;
@@ -300,20 +304,25 @@ function setupEmaus() {
         const progress = data.progress || {};
         const completedCount = Object.values(progress).filter(s => s === "completed").length;
 
-        // Si es la primera carga o hay progreso nuevo
-        if (completedCount > lastKnownProgress) {
-            
-            // 1. Hacemos que Emaús llame la atención (clase 'emaus-alert')
+        // 2. LÓGICA DE ALERTA: 
+        // Solo brilla si el progreso de la base de datos es SUPERIOR a lo que guardamos como "leído"
+        if (completedCount > lastReadProgress) {
             catBtn.classList.add("emaus-alert"); 
-
-            // 2. Al hacer click, ve el mensaje y el brillo se va
-            catBtn.onclick = () => {
-                showEmausModal(messages[completedCount] || "¡Sigan adelante, equipo!");
-                catBtn.classList.remove("emaus-alert");
-            };
-
-            lastKnownProgress = completedCount;
+        } else {
+            catBtn.classList.remove("emaus-alert");
         }
+
+        // 3. ACTUALIZACIÓN DEL CLICK
+        catBtn.onclick = () => {
+            showEmausModal(messages[completedCount] || "¡Sigan adelante, equipo!");
+            
+            // Al abrir el modal, quitamos el brillo inmediatamente
+            catBtn.classList.remove("emaus-alert");
+            
+            // Y grabamos en el "disco duro" del navegador que este nivel ya se vio
+            localStorage.setItem("emaus_last_read", completedCount);
+            lastReadProgress = completedCount; // Actualizamos la variable local para esta sesión
+        };
     });
 }
 
