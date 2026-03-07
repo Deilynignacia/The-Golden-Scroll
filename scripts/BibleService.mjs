@@ -1,10 +1,19 @@
-const BASE_URL = "https://bible-api.com/";
-
 export async function getFullChapter(bookId, chapterNumber) {
-    // Añadimos el parámetro de traducción al final
-    const url = `${BASE_URL}${bookId}+${chapterNumber}?translation=rva`;
-    
-    const response = await fetch(url);
-    const data = await response.json();
-    return data; 
+
+    const response = await fetch(`/scriptures/${bookId}.json`);
+
+    if (!response.ok) {
+        throw new Error("No se pudo cargar el libro");
+    }
+
+    const book = await response.json();
+
+    const chapter = book[chapterNumber - 1];
+
+    return {
+        verses: chapter.map((text, index) => ({
+            verse: index + 1,
+            text: text
+        }))
+    };
 }

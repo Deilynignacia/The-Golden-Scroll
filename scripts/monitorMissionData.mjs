@@ -148,7 +148,7 @@ export const missionData = {
             id: "9",
             title: "El Censo de Israel",
             subtitle: "¿Cuántos son?",
-            childrenPlatform: "El libro de Números se llama así porque comienza y termina con un censo. Pide una hoja de censo a tu monitor y responde las preguntas usando la información.",
+            childrenPlatform: "Los participantes ven la primera pregunta del censo.",
             icon: "images/icons/9.png",
             secretLetter: "S",
             prepGuide: {

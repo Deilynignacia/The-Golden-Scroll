@@ -237,7 +237,7 @@ window.checkFinalPassword = () => {
         if (catBtn) {
             catBtn.classList.add("emaus-alert"); // Lo ponemos a brillar y saltar
             catBtn.onclick = () => {
-                showEmausModal("¿Sientes eso? ¡Es la victoria respirándote en la nuca! Esta es mi última pista para ti: Este éxito no es solo tuyo, compartelo con tu familia. ¡CON TODA TU FAMILIA!");
+                showEmausModal("¿Sientes eso? ¡Es la victoria respirándote en la nuca! Esta es mi última pista para ti: Este éxito no es solo tuyo, compartelo con tu familia... ¡CON TODA TU FAMILIA 😉👨🏼‍👩🏾‍👧🏽‍👦🏻🍃🌿!");
                 catBtn.classList.remove("emaus-alert");
             };
         }
@@ -283,11 +283,11 @@ function setupEmaus() {
         2: "Algo que me encanta de los animales, es que todos se comunican con diferentes sonidos. Mi amigo el león, ruge muuuy fuerte, el perro ladra cuando quiere jugar con la pelota, y la jirafa es muuuy calladita. Ustedes, los humanos, también se comunican de distintas maneras. ¿Recuerdas esa cosa en tu teléfono para traducir tomando fotos? Quizá sea momento de usarlo... ",
         3: "A los gatos NOS ENCANTA perseguir las luces. ¿Tienes alguna por ahí?",
         4: "Todos necesitamos relajarnos de vez en cuando. A mi me gusta pintar ¿y a ti?",
-        5: "El arte es mucho más que lindos dibujos, cuentan historias, secretos, y algunas veces, pistas. ¿Ves algún dibujo a tu alrededor ahora? ",
+        5: "El arte es mucho más que lindos dibujos, cuenta historias, secretos, y algunas veces, pistas. ¿Ves algún dibujo a tu alrededor ahora? ",
         6: "Hay una gran diferencia entre desobedecer las reglas, y buscar soluciones creativas. ¿Haz intentado mirar las cosas desde otro ángulo?",
         7: "A veces hay que mirar desde otro ángulo, y otras, hay que mirar dos veces. ¿Ya buscaste bien?",
         8: "¡Uuuf! Matemáticas. Lo importante aquí es la precisión. Respira hondo, y... ¡Usa esos dedos para contar!",
-        9: "¿Sabías que para muchas personas, los números pueden ser un dolor de cabeza? Como si fuera una contraseña imposible de descifrar..."
+        9: "¿Sabías que para muchas personas, los números pueden ser un dolor de cabeza? Como si fuera una CONTRASEÑA imposible de descifrar..."
     };
 
 // 1. Recuperamos el último que el usuario REALMENTE leyó al hacer click

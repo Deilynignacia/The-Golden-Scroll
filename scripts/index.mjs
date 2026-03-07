@@ -1,7 +1,6 @@
-import { initializeApp } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-app.js";
+import { initializeApp, getApps, getApp } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-app.js";
 import { getFirestore, doc, getDoc } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-firestore.js";
 
-// Tu config de Firebase
 const firebaseConfig = { 
     apiKey: "AIzaSyAon2En6oCIlGNhJuVDC7PYbFGzPy6bW5c",
     authDomain: "the-golden-scroll.firebaseapp.com",
@@ -10,30 +9,29 @@ const firebaseConfig = {
     messagingSenderId: "162425132870",
     appId: "1:162425132870:web:0f8e982e27cae87d1eb747",
     measurementId: "G-TMKSXWGNL9"
- }; 
-const app = initializeApp(firebaseConfig);
+}; 
+
+// --- CAMBIO CLAVE: Inicialización segura ---
+const app = !getApps().length ? initializeApp(firebaseConfig) : getApp();
 const db = getFirestore(app);
 
 document.addEventListener('layoutReady', async () => {
     let teamData = JSON.parse(localStorage.getItem("goldenScroll_team"));
 
-    // --- 1. Sincronización PRIORITARIA con Firebase ---
-    // Esperamos a que Firebase responda para tener la "verdad" antes de dibujar nada
     if (teamData && teamData.name) {
         try {
             const docRef = doc(db, "teams", teamData.name);
             const docSnap = await getDoc(docRef);
             if (docSnap.exists()) {
-                // Actualizamos la variable local con los datos frescos de la nube
                 teamData = docSnap.data();
                 localStorage.setItem("goldenScroll_team", JSON.stringify(teamData));
             }
         } catch (e) {
-            console.log("Offline mode: using local data");
+            console.log("Error de sincronización:", e);
         }
     }
 
-    // --- 2. Progress Tracker (Ahora usa los datos ya sincronizados) ---
+    // Progress Tracker
     const progressFill = document.querySelector('.progress-fill');
     if (progressFill) {
         let percentage = 0; 
@@ -51,14 +49,14 @@ document.addEventListener('layoutReady', async () => {
         headerProfile.style.backgroundImage = `url(${teamData.avatar})`;
     }
 
-    // Menu
+    // Menu (Aquí es donde revive tu botón de la BIBLIA)
     const buttons = { 'map': 'map.html', 'ranking': 'ranking.html', 'normas': 'normas.html', 'bible': 'bible.html' };
     Object.entries(buttons).forEach(([id, url]) => {
         const btn = document.getElementById(id);
         if (btn) btn.addEventListener('click', () => { window.location.href = url; });
     });
 
-    // Profile
+    // Profile Modal
     const profileBtn = document.getElementById('team-profile');
     const modalProfile = document.getElementById('modal-profile');
     const closeProfile = document.getElementById('close-profile');

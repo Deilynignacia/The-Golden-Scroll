@@ -39,7 +39,7 @@ function setupPlagasGame() {
         { r: "Piojos", q: "Del polvo de la tierra nacieron y a todos los hombres mordieron. Tan pequeños que no los ves, pero te pican de la cabeza a los pies." },
         { r: "Moscas", q: "Zumban y vuelan sin parar, en ningún lugar te dejan estar. Nubes negras que traen molestia, atacando a toda la bestia." },
         { r: "Muerte del Ganado", q: "En los campos todo cayó, el animal del egipcio murió. Caballos y ovejas por igual, sucumbieron ante este mal." },
-        { r: "Ulceras", q: "Ni el mago ni el señor se libraron, cuando en su piel llagas brotaron. Un dolor que no se puede aguantar, y nadie lo podía curar." },
+        { r: "Úlceras", q: "Ni el mago ni el señor se libraron, cuando en su piel llagas brotaron. Un dolor que no se puede aguantar, y nadie lo podía curar." },
         { r: "Granizo y Fuego", q: "Cayó del cielo una extraña mezcla, que a todo el campo lo desmantela. Hielo que golpea y fuego que arde, ¡corre a esconderte antes que sea tarde!" },
         { r: "Langostas", q: "Un ejército con hambre de oriente, que no deja nada para la gente. Lo que el granizo no destruyó, este insecto se lo comió." },
         { r: "Oscuridad", q: "Tres días sin ver la luz del sol, no sirve el fuego ni el farol. Una sombra que se puede sentir, y a nadie deja de casa salir." },
@@ -133,8 +133,9 @@ function setupCensoGame() {
         { q: "¿Cuántas personas de Betel tienen el pelo negro?", r: "1" },
         { q: "¿Cuántas años tiene la persona de Jericó que tiene el pelo rubio?", r: "8" },
         { q: "¿Cuántas personas en total tienen el pelo castaño?", r: "3" },
-        { q: "¿Cuántas personas de Jericó tienen ojos de color negro o café oscuro?", r: "2" },
-        { q: "¿Cuántos niños (entre 7 y 11 años) hay en total en el censo?", r: "4" }
+        { q: "¿Cuántos pastores de ovejas hay?", r: "1" },
+        { q: "¿Cuántos niños (entre 7 y 11 años) hay en total en el censo?", r: "4" },
+        { q: "¿Cuántos niños hay cuyas ocupaciones no sean 'estudiante'", r: "2" }
     ];
 
     let currentStep = 0;
@@ -157,7 +158,10 @@ function setupCensoGame() {
                 <div class="plaga-box correct-glow" style="margin-top: 20px;">
                     <p class="plaga-riddle" style="font-weight: bold;">
                         ¡Censo completado! <br><br> 
-                        Has demostrado ser un gran escriba de Israel. Ve con tu monitor para recibir tu siguiente instrucción.
+                        Cuarenta años de arena, un mapa de fe.
+                        El norte se pierde, el este no se ve.
+                        Solo queda una senda, un paso divino...
+                        La brújula apunta directo a El Camino.
                     </p>
                 </div>
             `;
